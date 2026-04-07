@@ -8,11 +8,11 @@ description: >-
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Monitoring
-  - Visualization
-  - Dashboards
-  - Observability
   - AWS
+  - Dashboards
+  - Monitoring
+  - Observability
+  - Visualization
 url: >-
   https://raw.githubusercontent.com/api-evangelist/amazon-managed-grafana/refs/heads/main/apis.yml
 created: '2026-03-16'
@@ -28,9 +28,9 @@ apis:
     humanURL: https://aws.amazon.com/grafana/
     baseURL: https://grafana.amazonaws.com
     tags:
+      - Dashboards
       - Monitoring
       - Visualization
-      - Dashboards
     properties:
       - type: Documentation
         url: https://docs.aws.amazon.com/grafana/latest/APIReference/Welcome.html
