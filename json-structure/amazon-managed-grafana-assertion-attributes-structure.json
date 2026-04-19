@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-grafana/refs/heads/main/json-structure/amazon-managed-grafana-assertion-attributes-structure.json",
+  "name": "AssertionAttributes",
+  "description": "A structure that defines which attributes in the IdP assertion are to be used to define information about the users authenticated by the IdP to use the workspace.",
+  "type": "object",
+  "properties": {
+    "email": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AssertionAttribute"
+        },
+        {
+          "description": "The name of the attribute within the SAML assertion to use as the email names for SAML users."
+        }
+      ]
+    },
+    "groups": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AssertionAttribute"
+        },
+        {
+          "description": "The name of the attribute within the SAML assertion to use as the user full \"friendly\" names for user groups."
+        }
+      ]
+    },
+    "login": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AssertionAttribute"
+        },
+        {
+          "description": "The name of the attribute within the SAML assertion to use as the login names for SAML users."
+        }
+      ]
+    },
+    "name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AssertionAttribute"
+        },
+        {
+          "description": "The name of the attribute within the SAML assertion to use as the user full \"friendly\" names for SAML users."
+        }
+      ]
+    },
+    "org": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AssertionAttribute"
+        },
+        {
+          "description": "The name of the attribute within the SAML assertion to use as the user full \"friendly\" names for the users' organizations."
+        }
+      ]
+    },
+    "role": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AssertionAttribute"
+        },
+        {
+          "description": "The name of the attribute within the SAML assertion to use as the user roles."
+        }
+      ]
+    }
+  }
+}

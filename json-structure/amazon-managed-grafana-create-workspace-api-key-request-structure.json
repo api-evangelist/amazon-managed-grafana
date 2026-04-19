@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-grafana/refs/heads/main/json-structure/amazon-managed-grafana-create-workspace-api-key-request-structure.json",
+  "name": "CreateWorkspaceApiKeyRequest",
+  "description": "CreateWorkspaceApiKeyRequest schema from Amazon Managed Grafana API",
+  "type": "object",
+  "properties": {
+    "keyName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApiKeyName"
+        },
+        {
+          "description": "Specifies the name of the key. Keynames must be unique to the workspace."
+        }
+      ]
+    },
+    "keyRole": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "<p>Specifies the permission level of the key.</p> <p> Valid values: <code>VIEWER</code>|<code>EDITOR</code>|<code>ADMIN</code> </p>"
+        }
+      ]
+    },
+    "secondsToLive": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CreateWorkspaceApiKeyRequestSecondsToLiveInteger"
+        },
+        {
+          "description": "Specifies the time in seconds until the key expires. Keys can be valid for up to 30 days."
+        }
+      ]
+    }
+  },
+  "required": [
+    "keyName",
+    "keyRole",
+    "secondsToLive"
+  ]
+}

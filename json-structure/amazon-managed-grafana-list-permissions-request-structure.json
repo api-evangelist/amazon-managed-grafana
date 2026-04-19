@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-grafana/refs/heads/main/json-structure/amazon-managed-grafana-list-permissions-request-structure.json",
+  "name": "ListPermissionsRequest",
+  "description": "ListPermissionsRequest schema from Amazon Managed Grafana API",
+  "type": "object",
+  "properties": {}
+}

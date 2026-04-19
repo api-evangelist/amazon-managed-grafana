@@ -1,0 +1,5 @@
+{
+  "awsSso": "example-value",
+  "providers": "abc12345",
+  "saml": "example-value"
+}

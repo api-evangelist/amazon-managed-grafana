@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-grafana/refs/heads/main/json-structure/amazon-managed-grafana-describe-workspace-configuration-response-structure.json",
+  "name": "DescribeWorkspaceConfigurationResponse",
+  "description": "DescribeWorkspaceConfigurationResponse schema from Amazon Managed Grafana API",
+  "type": "object",
+  "properties": {
+    "configuration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/OverridableConfigurationJson"
+        },
+        {
+          "description": "The configuration string for the workspace that you requested. For more information about the format and configuration options available, see <a href=\"https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html\">Working in your Grafana workspace</a>."
+        }
+      ]
+    },
+    "grafanaVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/GrafanaVersion"
+        },
+        {
+          "description": "The supported Grafana version for the workspace."
+        }
+      ]
+    }
+  },
+  "required": [
+    "configuration"
+  ]
+}

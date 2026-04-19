@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-grafana/refs/heads/main/json-schema/amazon-managed-grafana-workspace-status-schema.json",
+  "title": "WorkspaceStatus",
+  "description": "WorkspaceStatus schema from Amazon Managed Grafana API",
+  "type": "string",
+  "enum": [
+    "ACTIVE",
+    "CREATING",
+    "DELETING",
+    "FAILED",
+    "UPDATING",
+    "UPGRADING",
+    "DELETION_FAILED",
+    "CREATION_FAILED",
+    "UPDATE_FAILED",
+    "UPGRADE_FAILED",
+    "LICENSE_REMOVAL_FAILED",
+    "VERSION_UPDATING",
+    "VERSION_UPDATE_FAILED"
+  ]
+}

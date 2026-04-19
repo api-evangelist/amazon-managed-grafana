@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-grafana/refs/heads/main/json-structure/amazon-managed-grafana-client-token-structure.json",
+  "name": "ClientToken",
+  "description": "ClientToken schema from Amazon Managed Grafana API",
+  "type": "string",
+  "pattern": "^[!-~]{1,64}$"
+}

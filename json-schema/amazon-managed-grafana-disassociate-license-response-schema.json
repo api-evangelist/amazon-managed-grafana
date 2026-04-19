@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-grafana/refs/heads/main/json-schema/amazon-managed-grafana-disassociate-license-response-schema.json",
+  "title": "DisassociateLicenseResponse",
+  "description": "DisassociateLicenseResponse schema from Amazon Managed Grafana API",
+  "type": "object",
+  "properties": {
+    "workspace": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WorkspaceDescription"
+        },
+        {
+          "description": "A structure containing information about the workspace."
+        }
+      ]
+    }
+  },
+  "required": [
+    "workspace"
+  ]
+}

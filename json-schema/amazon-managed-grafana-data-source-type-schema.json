@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-grafana/refs/heads/main/json-schema/amazon-managed-grafana-data-source-type-schema.json",
+  "title": "DataSourceType",
+  "description": "DataSourceType schema from Amazon Managed Grafana API",
+  "type": "string",
+  "enum": [
+    "AMAZON_OPENSEARCH_SERVICE",
+    "CLOUDWATCH",
+    "PROMETHEUS",
+    "XRAY",
+    "TIMESTREAM",
+    "SITEWISE",
+    "ATHENA",
+    "REDSHIFT",
+    "TWINMAKER"
+  ]
+}

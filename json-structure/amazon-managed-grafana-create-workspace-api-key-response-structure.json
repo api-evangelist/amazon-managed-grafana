@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-grafana/refs/heads/main/json-structure/amazon-managed-grafana-create-workspace-api-key-response-structure.json",
+  "name": "CreateWorkspaceApiKeyResponse",
+  "description": "CreateWorkspaceApiKeyResponse schema from Amazon Managed Grafana API",
+  "type": "object",
+  "properties": {
+    "key": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApiKeyToken"
+        },
+        {
+          "description": "The key token. Use this value as a bearer token to authenticate HTTP requests to the workspace."
+        }
+      ]
+    },
+    "keyName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApiKeyName"
+        },
+        {
+          "description": "The name of the key that was created."
+        }
+      ]
+    },
+    "workspaceId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WorkspaceId"
+        },
+        {
+          "description": "The ID of the workspace that the key is valid for."
+        }
+      ]
+    }
+  },
+  "required": [
+    "key",
+    "keyName",
+    "workspaceId"
+  ]
+}

@@ -1,0 +1,99 @@
+vocabulary: "1.0.0"
+info:
+  provider: "Amazon Managed Grafana"
+  description: "Vocabulary for Amazon Managed Grafana covering workspace management, user access, and API key administration."
+  created: "2026-04-19"
+  modified: "2026-04-19"
+operational:
+  apis:
+    - namespace: managed-grafana
+      version: "2020-08-18"
+      baseUrl: https://grafana.amazonaws.com
+      status: active
+  resources:
+    - name: workspaces
+      apis: [managed-grafana]
+      actions: [create, list, describe, update, delete]
+    - name: api-keys
+      apis: [managed-grafana]
+      actions: [create, list, delete]
+    - name: users
+      apis: [managed-grafana]
+      actions: [list, update, disassociate]
+    - name: licenses
+      apis: [managed-grafana]
+      actions: [associate, disassociate]
+    - name: tags
+      apis: [managed-grafana]
+      actions: [list, add, remove]
+  actions:
+    - name: create
+      httpMethods: [POST]
+      pattern: write
+    - name: list
+      httpMethods: [GET]
+      pattern: read
+    - name: describe
+      httpMethods: [GET]
+      pattern: read
+    - name: update
+      httpMethods: [PUT]
+      pattern: write
+    - name: delete
+      httpMethods: [DELETE]
+      pattern: destructive
+    - name: associate
+      httpMethods: [POST]
+      pattern: write
+    - name: disassociate
+      httpMethods: [DELETE]
+      pattern: destructive
+  enums:
+    workspace-status:
+      - ACTIVE
+      - CREATING
+      - DELETING
+      - FAILED
+      - UPDATING
+      - UPGRADING
+      - DELETION_FAILED
+      - CREATION_FAILED
+      - UPDATE_FAILED
+      - UPGRADE_FAILED
+      - LICENSE_REMOVAL_FAILED
+    license-type:
+      - ENTERPRISE
+      - ENTERPRISE_FREE_TRIAL
+  authentication:
+    schemes:
+      - type: aws-sigv4
+        name: AWS Signature Version 4
+        apis: [managed-grafana]
+capability:
+  workflows:
+    - name: Observability Dashboard Workflow
+      file: capabilities/observability-dashboard-workflow.yaml
+      apisComposed: [managed-grafana]
+      toolCount: 5
+      personas: [Platform Engineer, Operations Engineer]
+  personas:
+    - id: platform-engineer
+      name: "Platform Engineer"
+      workflows: [Observability Dashboard Workflow]
+    - id: operations-engineer
+      name: "Operations Engineer"
+      workflows: [Observability Dashboard Workflow]
+  namespaces:
+    - name: managed-grafana
+      type: consumed
+    - name: grafana-dashboard-api
+      type: rest-exposed
+      port: 8080
+    - name: grafana-dashboard-mcp
+      type: mcp-exposed
+      port: 9090
+crossReference:
+  - resource: workspaces
+    operations: [CreateWorkspace, ListWorkspaces, DescribeWorkspace, UpdateWorkspace, DeleteWorkspace]
+    workflows: [Observability Dashboard Workflow]
+    personas: [Platform Engineer, Operations Engineer]

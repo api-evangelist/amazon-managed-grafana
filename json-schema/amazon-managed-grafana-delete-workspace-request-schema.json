@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-grafana/refs/heads/main/json-schema/amazon-managed-grafana-delete-workspace-request-schema.json",
+  "title": "DeleteWorkspaceRequest",
+  "description": "DeleteWorkspaceRequest schema from Amazon Managed Grafana API",
+  "type": "object",
+  "properties": {}
+}

@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-grafana/refs/heads/main/json-structure/amazon-managed-grafana-sso-client-id-structure.json",
+  "name": "SSOClientId",
+  "description": "SSOClientId schema from Amazon Managed Grafana API",
+  "type": "string"
+}

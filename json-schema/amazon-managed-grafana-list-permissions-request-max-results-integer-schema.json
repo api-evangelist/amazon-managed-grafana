@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-grafana/refs/heads/main/json-schema/amazon-managed-grafana-list-permissions-request-max-results-integer-schema.json",
+  "title": "ListPermissionsRequestMaxResultsInteger",
+  "description": "ListPermissionsRequestMaxResultsInteger schema from Amazon Managed Grafana API",
+  "type": "integer",
+  "minimum": 1,
+  "maximum": 100
+}

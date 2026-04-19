@@ -1,0 +1,7 @@
+{
+  "allowedOrganizations": "example-value",
+  "assertionAttributes": "example-value",
+  "idpMetadata": "abc12345",
+  "loginValidityDuration": "abc12345",
+  "roleValues": "example-value"
+}

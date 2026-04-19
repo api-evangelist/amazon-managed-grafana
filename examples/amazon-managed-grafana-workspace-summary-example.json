@@ -1,0 +1,13 @@
+{
+  "authentication": "example-value",
+  "created": "example-value",
+  "description": "Example resource description",
+  "endpoint": "example-value",
+  "grafanaVersion": "example-value",
+  "id": "abc12345",
+  "modified": "example-value",
+  "name": "my-resource",
+  "notificationDestinations": "example-value",
+  "status": "ACTIVE",
+  "tags": "example-value"
+}

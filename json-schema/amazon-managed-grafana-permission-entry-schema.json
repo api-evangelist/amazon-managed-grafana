@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-grafana/refs/heads/main/json-schema/amazon-managed-grafana-permission-entry-schema.json",
+  "title": "PermissionEntry",
+  "description": "A structure containing the identity of one user or group and the <code>Admin</code>, <code>Editor</code>, or <code>Viewer</code> role that they have.",
+  "type": "object",
+  "properties": {
+    "role": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Role"
+        },
+        {
+          "description": "Specifies whether the user or group has the <code>Admin</code>, <code>Editor</code>, or <code>Viewer</code> role."
+        }
+      ]
+    },
+    "user": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/User"
+        },
+        {
+          "description": "A structure with the ID of the user or group with this role."
+        }
+      ]
+    }
+  },
+  "required": [
+    "role",
+    "user"
+  ]
+}

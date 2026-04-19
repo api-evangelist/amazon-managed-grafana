@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-grafana/refs/heads/main/json-schema/amazon-managed-grafana-delete-workspace-api-key-response-schema.json",
+  "title": "DeleteWorkspaceApiKeyResponse",
+  "description": "DeleteWorkspaceApiKeyResponse schema from Amazon Managed Grafana API",
+  "type": "object",
+  "properties": {
+    "keyName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApiKeyName"
+        },
+        {
+          "description": "The name of the key that was deleted."
+        }
+      ]
+    },
+    "workspaceId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WorkspaceId"
+        },
+        {
+          "description": "The ID of the workspace where the key was deleted."
+        }
+      ]
+    }
+  },
+  "required": [
+    "keyName",
+    "workspaceId"
+  ]
+}

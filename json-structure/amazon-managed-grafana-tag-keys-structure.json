@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-grafana/refs/heads/main/json-structure/amazon-managed-grafana-tag-keys-structure.json",
+  "name": "TagKeys",
+  "description": "TagKeys schema from Amazon Managed Grafana API",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/TagKey"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-grafana/refs/heads/main/json-structure/amazon-managed-grafana-api-key-name-structure.json",
+  "name": "ApiKeyName",
+  "description": "ApiKeyName schema from Amazon Managed Grafana API",
+  "type": "string"
+}

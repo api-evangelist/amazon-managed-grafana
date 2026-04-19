@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-grafana/refs/heads/main/json-schema/amazon-managed-grafana-saml-authentication-schema.json",
+  "title": "SamlAuthentication",
+  "description": "A structure containing information about how this workspace works with SAML. ",
+  "type": "object",
+  "properties": {
+    "configuration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SamlConfiguration"
+        },
+        {
+          "description": "A structure containing details about how this workspace works with SAML. "
+        }
+      ]
+    },
+    "status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SamlConfigurationStatus"
+        },
+        {
+          "description": "Specifies whether the workspace's SAML configuration is complete."
+        }
+      ]
+    }
+  },
+  "required": [
+    "status"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "accountAccessType": "example-value",
+  "authenticationProviders": "abc12345",
+  "clientToken": "example-value",
+  "configuration": "example-value",
+  "grafanaVersion": "example-value",
+  "networkAccessControl": "example-value",
+  "organizationRoleName": "my-resource",
+  "permissionType": "example-value",
+  "stackSetName": "my-resource",
+  "tags": "example-value",
+  "vpcConfiguration": "example-value",
+  "workspaceDataSources": "example-value",
+  "workspaceDescription": "Example resource description",
+  "workspaceName": "my-resource",
+  "workspaceNotificationDestinations": "example-value",
+  "workspaceOrganizationalUnits": "example-value",
+  "workspaceRoleArn": "arn:aws:service:us-east-1:123456789012:resource/id"
+}

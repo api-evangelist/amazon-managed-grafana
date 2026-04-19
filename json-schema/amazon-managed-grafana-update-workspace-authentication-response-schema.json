@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-grafana/refs/heads/main/json-schema/amazon-managed-grafana-update-workspace-authentication-response-schema.json",
+  "title": "UpdateWorkspaceAuthenticationResponse",
+  "description": "UpdateWorkspaceAuthenticationResponse schema from Amazon Managed Grafana API",
+  "type": "object",
+  "properties": {
+    "authentication": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AuthenticationDescription"
+        },
+        {
+          "description": "A structure that describes the user authentication for this workspace after the update is made."
+        }
+      ]
+    }
+  },
+  "required": [
+    "authentication"
+  ]
+}

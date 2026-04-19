@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-grafana/refs/heads/main/json-schema/amazon-managed-grafana-idp-metadata-schema.json",
+  "title": "IdpMetadata",
+  "description": "A structure containing the identity provider (IdP) metadata used to integrate the identity provider with this workspace. You can specify the metadata either by providing a URL to its location in the <code>url</code> parameter, or by specifying the full metadata in XML format in the <code>xml</code> parameter. Specifying both will cause an error.",
+  "type": "object",
+  "properties": {
+    "url": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/IdpMetadataUrl"
+        },
+        {
+          "description": "The URL of the location containing the IdP metadata."
+        }
+      ]
+    },
+    "xml": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The full IdP metadata, in XML format."
+        }
+      ]
+    }
+  }
+}

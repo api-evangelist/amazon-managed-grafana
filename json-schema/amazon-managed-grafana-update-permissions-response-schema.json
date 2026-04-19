@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-grafana/refs/heads/main/json-schema/amazon-managed-grafana-update-permissions-response-schema.json",
+  "title": "UpdatePermissionsResponse",
+  "description": "UpdatePermissionsResponse schema from Amazon Managed Grafana API",
+  "type": "object",
+  "properties": {
+    "errors": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/UpdateErrorList"
+        },
+        {
+          "description": "An array of structures that contain the errors from the operation, if any."
+        }
+      ]
+    }
+  },
+  "required": [
+    "errors"
+  ]
+}

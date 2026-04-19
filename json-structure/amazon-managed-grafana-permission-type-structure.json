@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-grafana/refs/heads/main/json-structure/amazon-managed-grafana-permission-type-structure.json",
+  "name": "PermissionType",
+  "description": "PermissionType schema from Amazon Managed Grafana API",
+  "type": "string",
+  "enum": [
+    "CUSTOMER_MANAGED",
+    "SERVICE_MANAGED"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-grafana/refs/heads/main/json-structure/amazon-managed-grafana-account-access-type-structure.json",
+  "name": "AccountAccessType",
+  "description": "AccountAccessType schema from Amazon Managed Grafana API",
+  "type": "string",
+  "enum": [
+    "CURRENT_ACCOUNT",
+    "ORGANIZATION"
+  ]
+}

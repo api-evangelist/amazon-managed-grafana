@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-grafana/refs/heads/main/json-schema/amazon-managed-grafana-saml-configuration-status-schema.json",
+  "title": "SamlConfigurationStatus",
+  "description": "SamlConfigurationStatus schema from Amazon Managed Grafana API",
+  "type": "string",
+  "enum": [
+    "CONFIGURED",
+    "NOT_CONFIGURED"
+  ]
+}

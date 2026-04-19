@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-grafana/refs/heads/main/json-structure/amazon-managed-grafana-aws-sso-authentication-structure.json",
+  "name": "AwsSsoAuthentication",
+  "description": "A structure containing information about how this workspace works with IAM Identity Center. ",
+  "type": "object",
+  "properties": {
+    "ssoClientId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SSOClientId"
+        },
+        {
+          "description": "The ID of the IAM Identity Center-managed application that is created by Amazon Managed Grafana."
+        }
+      ]
+    }
+  }
+}

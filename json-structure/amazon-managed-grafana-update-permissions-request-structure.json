@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-grafana/refs/heads/main/json-structure/amazon-managed-grafana-update-permissions-request-structure.json",
+  "name": "UpdatePermissionsRequest",
+  "description": "UpdatePermissionsRequest schema from Amazon Managed Grafana API",
+  "type": "object",
+  "properties": {
+    "updateInstructionBatch": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/UpdateInstructionBatch"
+        },
+        {
+          "description": "An array of structures that contain the permission updates to make."
+        }
+      ]
+    }
+  },
+  "required": [
+    "updateInstructionBatch"
+  ]
+}

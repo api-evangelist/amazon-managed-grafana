@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-grafana/refs/heads/main/json-schema/amazon-managed-grafana-vpc-configuration-schema.json",
+  "title": "VpcConfiguration",
+  "description": "<p>The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to.</p> <note> <p>Provided <code>securityGroupIds</code> and <code>subnetIds</code> must be part of the same VPC.</p> <p>Connecting to a private VPC is not yet available in the Asia Pacific (Seoul) Region (ap-northeast-2).</p> </note>",
+  "type": "object",
+  "properties": {
+    "securityGroupIds": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SecurityGroupIds"
+        },
+        {
+          "description": "The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana workspace to connect. Duplicates not allowed."
+        }
+      ]
+    },
+    "subnetIds": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SubnetIds"
+        },
+        {
+          "description": "The list of Amazon EC2 subnet IDs created in the Amazon VPC for your Grafana workspace to connect. Duplicates not allowed."
+        }
+      ]
+    }
+  },
+  "required": [
+    "securityGroupIds",
+    "subnetIds"
+  ]
+}

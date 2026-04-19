@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-grafana/refs/heads/main/json-structure/amazon-managed-grafana-api-key-token-structure.json",
+  "name": "ApiKeyToken",
+  "description": "ApiKeyToken schema from Amazon Managed Grafana API",
+  "type": "string",
+  "format": "password"
+}

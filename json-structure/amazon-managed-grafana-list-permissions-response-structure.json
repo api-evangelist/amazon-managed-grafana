@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-grafana/refs/heads/main/json-structure/amazon-managed-grafana-list-permissions-response-structure.json",
+  "name": "ListPermissionsResponse",
+  "description": "ListPermissionsResponse schema from Amazon Managed Grafana API",
+  "type": "object",
+  "properties": {
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PaginationToken"
+        },
+        {
+          "description": "The token to use in a subsequent <code>ListPermissions</code> operation to return the next set of results."
+        }
+      ]
+    },
+    "permissions": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PermissionEntryList"
+        },
+        {
+          "description": "The permissions returned by the operation."
+        }
+      ]
+    }
+  },
+  "required": [
+    "permissions"
+  ]
+}

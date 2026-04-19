@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-grafana/refs/heads/main/json-structure/amazon-managed-grafana-notification-destination-type-structure.json",
+  "name": "NotificationDestinationType",
+  "description": "NotificationDestinationType schema from Amazon Managed Grafana API",
+  "type": "string",
+  "enum": [
+    "SNS"
+  ]
+}

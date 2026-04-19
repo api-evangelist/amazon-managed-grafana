@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-grafana/refs/heads/main/json-structure/amazon-managed-grafana-authentication-summary-structure.json",
+  "name": "AuthenticationSummary",
+  "description": "A structure that describes whether the workspace uses SAML, IAM Identity Center, or both methods for user authentication, and whether that authentication is fully configured.",
+  "type": "object",
+  "properties": {
+    "providers": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AuthenticationProviders"
+        },
+        {
+          "description": "Specifies whether the workspace uses SAML, IAM Identity Center, or both methods for user authentication."
+        }
+      ]
+    },
+    "samlConfigurationStatus": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SamlConfigurationStatus"
+        },
+        {
+          "description": "Specifies whether the workplace's user authentication method is fully configured."
+        }
+      ]
+    }
+  },
+  "required": [
+    "providers"
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-grafana/refs/heads/main/json-structure/amazon-managed-grafana-prefix-list-id-structure.json",
+  "name": "PrefixListId",
+  "description": "PrefixListId schema from Amazon Managed Grafana API",
+  "type": "string"
+}

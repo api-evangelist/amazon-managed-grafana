@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-grafana/refs/heads/main/json-schema/amazon-managed-grafana-create-workspace-api-key-request-seconds-to-live-integer-schema.json",
+  "title": "CreateWorkspaceApiKeyRequestSecondsToLiveInteger",
+  "description": "CreateWorkspaceApiKeyRequestSecondsToLiveInteger schema from Amazon Managed Grafana API",
+  "type": "integer",
+  "minimum": 1,
+  "maximum": 2592000
+}

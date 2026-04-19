@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-grafana/refs/heads/main/json-schema/amazon-managed-grafana-update-instruction-schema.json",
+  "title": "UpdateInstruction",
+  "description": "Contains the instructions for one Grafana role permission update in a <a href=\"https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdatePermissions.html\">UpdatePermissions</a> operation.",
+  "type": "object",
+  "properties": {
+    "action": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/UpdateAction"
+        },
+        {
+          "description": "Specifies whether this update is to add or revoke role permissions."
+        }
+      ]
+    },
+    "role": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Role"
+        },
+        {
+          "description": "The role to add or revoke for the user or the group specified in <code>users</code>."
+        }
+      ]
+    },
+    "users": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/UserList"
+        },
+        {
+          "description": "A structure that specifies the user or group to add or revoke the role for."
+        }
+      ]
+    }
+  },
+  "required": [
+    "action",
+    "role",
+    "users"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-grafana/refs/heads/main/json-structure/amazon-managed-grafana-list-workspaces-request-max-results-integer-structure.json",
+  "name": "ListWorkspacesRequestMaxResultsInteger",
+  "description": "ListWorkspacesRequestMaxResultsInteger schema from Amazon Managed Grafana API",
+  "type": "int32",
+  "minimum": 1,
+  "maximum": 100
+}

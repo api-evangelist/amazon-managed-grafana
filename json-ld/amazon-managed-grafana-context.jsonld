@@ -1,0 +1,294 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "amgr": "https://amgr.amazonaws.com/schema/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "AssertionAttributes": "amgr:AssertionAttributes",
+    "AssociateLicenseRequest": "amgr:AssociateLicenseRequest",
+    "AssociateLicenseResponse": "amgr:AssociateLicenseResponse",
+    "AuthenticationDescription": "amgr:AuthenticationDescription",
+    "AuthenticationSummary": "amgr:AuthenticationSummary",
+    "AwsSsoAuthentication": "amgr:AwsSsoAuthentication",
+    "CreateWorkspaceApiKeyRequest": "amgr:CreateWorkspaceApiKeyRequest",
+    "CreateWorkspaceApiKeyResponse": "amgr:CreateWorkspaceApiKeyResponse",
+    "CreateWorkspaceRequest": "amgr:CreateWorkspaceRequest",
+    "CreateWorkspaceResponse": "amgr:CreateWorkspaceResponse",
+    "DeleteWorkspaceApiKeyRequest": "amgr:DeleteWorkspaceApiKeyRequest",
+    "DeleteWorkspaceApiKeyResponse": "amgr:DeleteWorkspaceApiKeyResponse",
+    "DeleteWorkspaceRequest": "amgr:DeleteWorkspaceRequest",
+    "DeleteWorkspaceResponse": "amgr:DeleteWorkspaceResponse",
+    "DescribeWorkspaceAuthenticationRequest": "amgr:DescribeWorkspaceAuthenticationRequest",
+    "DescribeWorkspaceAuthenticationResponse": "amgr:DescribeWorkspaceAuthenticationResponse",
+    "DescribeWorkspaceConfigurationRequest": "amgr:DescribeWorkspaceConfigurationRequest",
+    "DescribeWorkspaceConfigurationResponse": "amgr:DescribeWorkspaceConfigurationResponse",
+    "DescribeWorkspaceRequest": "amgr:DescribeWorkspaceRequest",
+    "DescribeWorkspaceResponse": "amgr:DescribeWorkspaceResponse",
+    "DisassociateLicenseRequest": "amgr:DisassociateLicenseRequest",
+    "DisassociateLicenseResponse": "amgr:DisassociateLicenseResponse",
+    "IdpMetadata": "amgr:IdpMetadata",
+    "ListPermissionsRequest": "amgr:ListPermissionsRequest",
+    "ListPermissionsResponse": "amgr:ListPermissionsResponse",
+    "ListTagsForResourceRequest": "amgr:ListTagsForResourceRequest",
+    "ListTagsForResourceResponse": "amgr:ListTagsForResourceResponse",
+    "ListVersionsRequest": "amgr:ListVersionsRequest",
+    "ListVersionsResponse": "amgr:ListVersionsResponse",
+    "ListWorkspacesRequest": "amgr:ListWorkspacesRequest",
+    "ListWorkspacesResponse": "amgr:ListWorkspacesResponse",
+    "NetworkAccessConfiguration": "amgr:NetworkAccessConfiguration",
+    "PermissionEntry": "amgr:PermissionEntry",
+    "RoleValues": "amgr:RoleValues",
+    "SamlAuthentication": "amgr:SamlAuthentication",
+    "SamlConfiguration": "amgr:SamlConfiguration",
+    "TagMap": "amgr:TagMap",
+    "TagResourceRequest": "amgr:TagResourceRequest",
+    "TagResourceResponse": "amgr:TagResourceResponse",
+    "UntagResourceRequest": "amgr:UntagResourceRequest",
+    "UntagResourceResponse": "amgr:UntagResourceResponse",
+    "UpdateError": "amgr:UpdateError",
+    "UpdateInstruction": "amgr:UpdateInstruction",
+    "UpdatePermissionsRequest": "amgr:UpdatePermissionsRequest",
+    "UpdatePermissionsResponse": "amgr:UpdatePermissionsResponse",
+    "UpdateWorkspaceAuthenticationRequest": "amgr:UpdateWorkspaceAuthenticationRequest",
+    "UpdateWorkspaceAuthenticationResponse": "amgr:UpdateWorkspaceAuthenticationResponse",
+    "UpdateWorkspaceConfigurationRequest": "amgr:UpdateWorkspaceConfigurationRequest",
+    "UpdateWorkspaceConfigurationResponse": "amgr:UpdateWorkspaceConfigurationResponse",
+    "UpdateWorkspaceRequest": "amgr:UpdateWorkspaceRequest",
+    "UpdateWorkspaceResponse": "amgr:UpdateWorkspaceResponse",
+    "User": "amgr:User",
+    "VpcConfiguration": "amgr:VpcConfiguration",
+    "WorkspaceDescription": "amgr:WorkspaceDescription",
+    "WorkspaceSummary": "amgr:WorkspaceSummary",
+    "accountAccessType": {
+      "@id": "amgr:accountAccessType"
+    },
+    "action": {
+      "@id": "amgr:action"
+    },
+    "admin": {
+      "@id": "amgr:admin"
+    },
+    "allowedOrganizations": {
+      "@id": "amgr:allowedOrganizations"
+    },
+    "assertionAttributes": {
+      "@id": "amgr:assertionAttributes"
+    },
+    "authentication": {
+      "@id": "amgr:authentication"
+    },
+    "authenticationProviders": {
+      "@id": "amgr:authenticationProviders"
+    },
+    "awsSso": {
+      "@id": "amgr:awsSso"
+    },
+    "causedBy": {
+      "@id": "amgr:causedBy"
+    },
+    "clientToken": {
+      "@id": "amgr:clientToken"
+    },
+    "code": {
+      "@id": "amgr:code"
+    },
+    "configuration": {
+      "@id": "amgr:configuration"
+    },
+    "created": {
+      "@id": "amgr:created"
+    },
+    "dataSources": {
+      "@id": "amgr:dataSources"
+    },
+    "description": {
+      "@id": "amgr:description"
+    },
+    "editor": {
+      "@id": "amgr:editor"
+    },
+    "email": {
+      "@id": "amgr:email"
+    },
+    "endpoint": {
+      "@id": "amgr:endpoint"
+    },
+    "errors": {
+      "@id": "amgr:errors"
+    },
+    "freeTrialConsumed": {
+      "@id": "amgr:freeTrialConsumed"
+    },
+    "freeTrialExpiration": {
+      "@id": "amgr:freeTrialExpiration"
+    },
+    "grafanaVersion": {
+      "@id": "amgr:grafanaVersion"
+    },
+    "grafanaVersions": {
+      "@id": "amgr:grafanaVersions"
+    },
+    "groups": {
+      "@id": "amgr:groups"
+    },
+    "id": {
+      "@id": "amgr:id"
+    },
+    "idpMetadata": {
+      "@id": "amgr:idpMetadata"
+    },
+    "key": {
+      "@id": "amgr:key"
+    },
+    "keyName": {
+      "@id": "amgr:keyName"
+    },
+    "keyRole": {
+      "@id": "amgr:keyRole"
+    },
+    "licenseExpiration": {
+      "@id": "amgr:licenseExpiration"
+    },
+    "licenseType": {
+      "@id": "amgr:licenseType"
+    },
+    "login": {
+      "@id": "amgr:login"
+    },
+    "loginValidityDuration": {
+      "@id": "amgr:loginValidityDuration"
+    },
+    "message": {
+      "@id": "amgr:message"
+    },
+    "modified": {
+      "@id": "amgr:modified"
+    },
+    "name": {
+      "@id": "amgr:name"
+    },
+    "networkAccessControl": {
+      "@id": "amgr:networkAccessControl"
+    },
+    "nextToken": {
+      "@id": "amgr:nextToken"
+    },
+    "notificationDestinations": {
+      "@id": "amgr:notificationDestinations"
+    },
+    "org": {
+      "@id": "amgr:org"
+    },
+    "organizationRoleName": {
+      "@id": "amgr:organizationRoleName"
+    },
+    "organizationalUnits": {
+      "@id": "amgr:organizationalUnits"
+    },
+    "permissionType": {
+      "@id": "amgr:permissionType"
+    },
+    "permissions": {
+      "@id": "amgr:permissions"
+    },
+    "prefixListIds": {
+      "@id": "amgr:prefixListIds"
+    },
+    "providers": {
+      "@id": "amgr:providers"
+    },
+    "removeNetworkAccessConfiguration": {
+      "@id": "amgr:removeNetworkAccessConfiguration"
+    },
+    "removeVpcConfiguration": {
+      "@id": "amgr:removeVpcConfiguration"
+    },
+    "role": {
+      "@id": "amgr:role"
+    },
+    "roleValues": {
+      "@id": "amgr:roleValues"
+    },
+    "saml": {
+      "@id": "amgr:saml"
+    },
+    "samlConfiguration": {
+      "@id": "amgr:samlConfiguration"
+    },
+    "samlConfigurationStatus": {
+      "@id": "amgr:samlConfigurationStatus"
+    },
+    "secondsToLive": {
+      "@id": "amgr:secondsToLive"
+    },
+    "securityGroupIds": {
+      "@id": "amgr:securityGroupIds"
+    },
+    "ssoClientId": {
+      "@id": "amgr:ssoClientId"
+    },
+    "stackSetName": {
+      "@id": "amgr:stackSetName"
+    },
+    "status": {
+      "@id": "amgr:status"
+    },
+    "subnetIds": {
+      "@id": "amgr:subnetIds"
+    },
+    "tags": {
+      "@id": "amgr:tags"
+    },
+    "type": {
+      "@id": "amgr:type"
+    },
+    "updateInstructionBatch": {
+      "@id": "amgr:updateInstructionBatch"
+    },
+    "url": {
+      "@id": "amgr:url"
+    },
+    "user": {
+      "@id": "amgr:user"
+    },
+    "users": {
+      "@id": "amgr:users"
+    },
+    "vpcConfiguration": {
+      "@id": "amgr:vpcConfiguration"
+    },
+    "vpceIds": {
+      "@id": "amgr:vpceIds"
+    },
+    "workspace": {
+      "@id": "amgr:workspace"
+    },
+    "workspaceDataSources": {
+      "@id": "amgr:workspaceDataSources"
+    },
+    "workspaceDescription": {
+      "@id": "amgr:workspaceDescription"
+    },
+    "workspaceId": {
+      "@id": "amgr:workspaceId"
+    },
+    "workspaceName": {
+      "@id": "amgr:workspaceName"
+    },
+    "workspaceNotificationDestinations": {
+      "@id": "amgr:workspaceNotificationDestinations"
+    },
+    "workspaceOrganizationalUnits": {
+      "@id": "amgr:workspaceOrganizationalUnits"
+    },
+    "workspaceRoleArn": {
+      "@id": "amgr:workspaceRoleArn"
+    },
+    "workspaces": {
+      "@id": "amgr:workspaces"
+    },
+    "xml": {
+      "@id": "amgr:xml"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-grafana/refs/heads/main/json-schema/amazon-managed-grafana-list-workspaces-response-schema.json",
+  "title": "ListWorkspacesResponse",
+  "description": "ListWorkspacesResponse schema from Amazon Managed Grafana API",
+  "type": "object",
+  "properties": {
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PaginationToken"
+        },
+        {
+          "description": "The token to use when requesting the next set of workspaces."
+        }
+      ]
+    },
+    "workspaces": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WorkspaceList"
+        },
+        {
+          "description": "An array of structures that contain some information about the workspaces in the account."
+        }
+      ]
+    }
+  },
+  "required": [
+    "workspaces"
+  ]
+}

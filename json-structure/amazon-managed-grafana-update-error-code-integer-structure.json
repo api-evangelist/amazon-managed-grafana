@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-grafana/refs/heads/main/json-structure/amazon-managed-grafana-update-error-code-integer-structure.json",
+  "name": "UpdateErrorCodeInteger",
+  "description": "UpdateErrorCodeInteger schema from Amazon Managed Grafana API",
+  "type": "int32",
+  "minimum": 100,
+  "maximum": 999
+}

@@ -1,0 +1,128 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-grafana/refs/heads/main/json-schema/amazon-managed-grafana-workspace-summary-schema.json",
+  "title": "WorkspaceSummary",
+  "description": "A structure that contains some information about one workspace in the account.",
+  "type": "object",
+  "properties": {
+    "authentication": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AuthenticationSummary"
+        },
+        {
+          "description": "A structure containing information about the authentication methods used in the workspace."
+        }
+      ]
+    },
+    "created": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The date that the workspace was created."
+        }
+      ]
+    },
+    "description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Description"
+        },
+        {
+          "description": "The customer-entered description of the workspace."
+        }
+      ]
+    },
+    "endpoint": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Endpoint"
+        },
+        {
+          "description": "The URL endpoint to use to access the Grafana console in the workspace."
+        }
+      ]
+    },
+    "grafanaVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/GrafanaVersion"
+        },
+        {
+          "description": "The Grafana version that the workspace is running."
+        }
+      ]
+    },
+    "id": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WorkspaceId"
+        },
+        {
+          "description": "The unique ID of the workspace."
+        }
+      ]
+    },
+    "modified": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The most recent date that the workspace was modified."
+        }
+      ]
+    },
+    "name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WorkspaceName"
+        },
+        {
+          "description": "The name of the workspace."
+        }
+      ]
+    },
+    "notificationDestinations": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NotificationDestinationsList"
+        },
+        {
+          "description": "The Amazon Web Services notification channels that Amazon Managed Grafana can automatically create IAM roles and permissions for, which allows Amazon Managed Grafana to use these channels."
+        }
+      ]
+    },
+    "status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WorkspaceStatus"
+        },
+        {
+          "description": "The current status of the workspace."
+        }
+      ]
+    },
+    "tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagMap"
+        },
+        {
+          "description": "The list of tags associated with the workspace."
+        }
+      ]
+    }
+  },
+  "required": [
+    "authentication",
+    "created",
+    "endpoint",
+    "grafanaVersion",
+    "id",
+    "modified",
+    "status"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-grafana/refs/heads/main/json-structure/amazon-managed-grafana-describe-workspace-authentication-response-structure.json",
+  "name": "DescribeWorkspaceAuthenticationResponse",
+  "description": "DescribeWorkspaceAuthenticationResponse schema from Amazon Managed Grafana API",
+  "type": "object",
+  "properties": {
+    "authentication": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AuthenticationDescription"
+        },
+        {
+          "description": "A structure containing information about the authentication methods used in the workspace."
+        }
+      ]
+    }
+  },
+  "required": [
+    "authentication"
+  ]
+}

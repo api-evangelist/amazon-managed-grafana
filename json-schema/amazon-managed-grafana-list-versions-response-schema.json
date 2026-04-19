@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-grafana/refs/heads/main/json-schema/amazon-managed-grafana-list-versions-response-schema.json",
+  "title": "ListVersionsResponse",
+  "description": "ListVersionsResponse schema from Amazon Managed Grafana API",
+  "type": "object",
+  "properties": {
+    "grafanaVersions": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/GrafanaVersionList"
+        },
+        {
+          "description": "The Grafana versions available to create. If a workspace ID is included in the request, the Grafana versions to which this workspace can be upgraded."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PaginationToken"
+        },
+        {
+          "description": "The token to use in a subsequent <code>ListVersions</code> operation to return the next set of results."
+        }
+      ]
+    }
+  }
+}

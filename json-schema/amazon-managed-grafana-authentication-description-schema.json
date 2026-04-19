@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-grafana/refs/heads/main/json-schema/amazon-managed-grafana-authentication-description-schema.json",
+  "title": "AuthenticationDescription",
+  "description": "A structure containing information about the user authentication methods used by the workspace.",
+  "type": "object",
+  "properties": {
+    "awsSso": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AwsSsoAuthentication"
+        },
+        {
+          "description": "A structure containing information about how this workspace works with IAM Identity Center. "
+        }
+      ]
+    },
+    "providers": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AuthenticationProviders"
+        },
+        {
+          "description": "Specifies whether this workspace uses IAM Identity Center, SAML, or both methods to authenticate users to use the Grafana console in the Amazon Managed Grafana workspace."
+        }
+      ]
+    },
+    "saml": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SamlAuthentication"
+        },
+        {
+          "description": "A structure containing information about how this workspace works with SAML, including what attributes within the assertion are to be mapped to user information in the workspace. "
+        }
+      ]
+    }
+  },
+  "required": [
+    "providers"
+  ]
+}

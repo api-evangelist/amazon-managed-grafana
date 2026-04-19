@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-grafana/refs/heads/main/json-schema/amazon-managed-grafana-user-schema.json",
+  "title": "User",
+  "description": "A structure that specifies one user or group in the workspace.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SsoId"
+        },
+        {
+          "description": "<p>The ID of the user or group.</p> <p>Pattern: <code>^([0-9a-fA-F]{10}-|)[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}$</code> </p>"
+        }
+      ]
+    },
+    "type": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/UserType"
+        },
+        {
+          "description": "Specifies whether this is a single user or a group."
+        }
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "type"
+  ]
+}

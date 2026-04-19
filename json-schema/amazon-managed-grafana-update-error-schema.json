@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-grafana/refs/heads/main/json-schema/amazon-managed-grafana-update-error-schema.json",
+  "title": "UpdateError",
+  "description": "A structure containing information about one error encountered while performing an <a href=\"https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdatePermissions.html\">UpdatePermissions</a> operation.",
+  "type": "object",
+  "properties": {
+    "causedBy": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/UpdateInstruction"
+        },
+        {
+          "description": "Specifies which permission update caused the error."
+        }
+      ]
+    },
+    "code": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/UpdateErrorCodeInteger"
+        },
+        {
+          "description": "The error code."
+        }
+      ]
+    },
+    "message": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The message for this error."
+        }
+      ]
+    }
+  },
+  "required": [
+    "causedBy",
+    "code",
+    "message"
+  ]
+}

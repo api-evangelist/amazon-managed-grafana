@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-grafana/refs/heads/main/json-schema/amazon-managed-grafana-workspace-name-schema.json",
+  "title": "WorkspaceName",
+  "description": "WorkspaceName schema from Amazon Managed Grafana API",
+  "type": "string",
+  "format": "password",
+  "pattern": "^[a-zA-Z0-9-._~]{1,255}$"
+}

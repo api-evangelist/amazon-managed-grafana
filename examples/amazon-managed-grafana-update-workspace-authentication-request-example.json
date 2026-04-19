@@ -1,0 +1,4 @@
+{
+  "authenticationProviders": "abc12345",
+  "samlConfiguration": "example-value"
+}

@@ -1,0 +1,16 @@
+{
+  "accountAccessType": "example-value",
+  "networkAccessControl": "example-value",
+  "organizationRoleName": "my-resource",
+  "permissionType": "example-value",
+  "removeNetworkAccessConfiguration": "example-value",
+  "removeVpcConfiguration": "example-value",
+  "stackSetName": "my-resource",
+  "vpcConfiguration": "example-value",
+  "workspaceDataSources": "example-value",
+  "workspaceDescription": "Example resource description",
+  "workspaceName": "my-resource",
+  "workspaceNotificationDestinations": "example-value",
+  "workspaceOrganizationalUnits": "example-value",
+  "workspaceRoleArn": "arn:aws:service:us-east-1:123456789012:resource/id"
+}

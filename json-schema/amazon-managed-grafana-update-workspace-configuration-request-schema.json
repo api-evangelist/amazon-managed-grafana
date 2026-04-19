@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-grafana/refs/heads/main/json-schema/amazon-managed-grafana-update-workspace-configuration-request-schema.json",
+  "title": "UpdateWorkspaceConfigurationRequest",
+  "description": "UpdateWorkspaceConfigurationRequest schema from Amazon Managed Grafana API",
+  "type": "object",
+  "properties": {
+    "configuration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/OverridableConfigurationJson"
+        },
+        {
+          "description": "The new configuration string for the workspace. For more information about the format and configuration options available, see <a href=\"https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html\">Working in your Grafana workspace</a>."
+        }
+      ]
+    },
+    "grafanaVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/GrafanaVersion"
+        },
+        {
+          "description": "<p>Specifies the version of Grafana to support in the new workspace.</p> <p>Can only be used to upgrade (for example, from 8.4 to 9.4), not downgrade (for example, from 9.4 to 8.4).</p> <p>To know what versions are available to upgrade to for a specific workspace, see the <code>ListVersions</code> operation.</p>"
+        }
+      ]
+    }
+  },
+  "required": [
+    "configuration"
+  ]
+}

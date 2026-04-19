@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-grafana/refs/heads/main/json-structure/amazon-managed-grafana-describe-workspace-response-structure.json",
+  "name": "DescribeWorkspaceResponse",
+  "description": "DescribeWorkspaceResponse schema from Amazon Managed Grafana API",
+  "type": "object",
+  "properties": {
+    "workspace": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WorkspaceDescription"
+        },
+        {
+          "description": "A structure containing information about the workspace."
+        }
+      ]
+    }
+  },
+  "required": [
+    "workspace"
+  ]
+}
