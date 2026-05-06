@@ -1,104 +1,183 @@
-naftiko: "1.0.0-alpha1"
+naftiko: 1.0.0-alpha2
 info:
-  label: "Amazon Managed Grafana - Observability Dashboard Workflow"
-  description: "Workflow capability for platform and operations teams to create and manage Grafana workspaces, dashboards, and access controls for observability on Amazon Managed Grafana."
+  label: Amazon Managed Grafana - Observability Dashboard Workflow
+  description: Workflow capability for platform and operations teams to create and manage Grafana workspaces, dashboards,
+    and access controls for observability on Amazon Managed Grafana.
   tags:
-    - Amazon
-    - Grafana
-    - Dashboards
-    - Monitoring
-    - Observability
-  created: "2026-04-19"
-  modified: "2026-04-19"
+  - Amazon
+  - Grafana
+  - Dashboards
+  - Monitoring
+  - Observability
+  created: '2026-04-19'
+  modified: '2026-05-06'
 binds:
-  - namespace: env
-    keys:
-      AWS_ACCESS_KEY_ID: AWS_ACCESS_KEY_ID
-      AWS_SECRET_ACCESS_KEY: AWS_SECRET_ACCESS_KEY
-      AWS_REGION: AWS_REGION
+- namespace: env
+  keys:
+    AWS_ACCESS_KEY_ID: AWS_ACCESS_KEY_ID
+    AWS_SECRET_ACCESS_KEY: AWS_SECRET_ACCESS_KEY
+    AWS_REGION: AWS_REGION
 capability:
   consumes:
-    - import: managed-grafana
-      location: ./shared/managed-grafana.yaml
+  - type: http
+    namespace: managed-grafana
+    baseUri: https://grafana.amazonaws.com
+    description: Amazon Managed Grafana REST API
+    authentication:
+      type: apikey
+      key: Authorization
+      value: AWS4-HMAC-SHA256 {{AWS_ACCESS_KEY_ID}}
+      placement: header
+    resources:
+    - name: workspaces
+      path: /workspaces
+      description: Manage Grafana workspaces
+      operations:
+      - name: list-workspaces
+        method: GET
+        description: List all Grafana workspaces
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: create-workspace
+        method: POST
+        description: Create a new Grafana workspace
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: describe-workspace
+        method: GET
+        description: Get workspace details
+        inputParameters:
+        - name: workspaceId
+          in: path
+          type: string
+          required: true
+          description: Workspace ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: update-workspace
+        method: PUT
+        description: Update workspace configuration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: delete-workspace
+        method: DELETE
+        description: Delete a workspace
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-keys
+      path: /workspaces/{workspaceId}/apikeys
+      description: Manage workspace API keys
+      operations:
+      - name: create-workspace-api-key
+        method: POST
+        description: Create a workspace API key
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: list-workspace-api-keys
+        method: GET
+        description: List workspace API keys
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
   exposes:
-    - type: rest
-      port: 8080
-      namespace: grafana-dashboard-api
-      description: "Unified REST API for Grafana observability dashboard workflows."
-      resources:
-        - path: /v1/workspaces
-          name: workspaces
-          description: "Grafana workspaces"
-          operations:
-            - method: GET
-              name: list-workspaces
-              description: "List workspaces"
-              call: "managed-grafana.list-workspaces"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-            - method: POST
-              name: create-workspace
-              description: "Create a workspace"
-              call: "managed-grafana.create-workspace"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-    - type: mcp
-      port: 9090
-      namespace: grafana-dashboard-mcp
-      transport: http
-      description: "MCP server for AI-assisted Grafana observability management."
-      tools:
-        - name: list-grafana-workspaces
-          description: "List all Grafana workspaces for observability dashboards"
-          hints:
-            readOnly: true
-            destructive: false
-            idempotent: true
-          call: "managed-grafana.list-workspaces"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: create-grafana-workspace
-          description: "Create a new Grafana workspace for observability dashboards"
-          hints:
-            readOnly: false
-            destructive: false
-            idempotent: false
-          call: "managed-grafana.create-workspace"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: get-workspace-details
-          description: "Get configuration and authentication details of a Grafana workspace"
-          hints:
-            readOnly: true
-            destructive: false
-            idempotent: true
-          call: "managed-grafana.describe-workspace"
-          with:
-            workspaceId: "tools.workspaceId"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: create-workspace-api-key
-          description: "Create an API key for programmatic Grafana workspace access"
-          hints:
-            readOnly: false
-            destructive: false
-            idempotent: false
-          call: "managed-grafana.create-workspace-api-key"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: update-workspace
-          description: "Update Grafana workspace configuration, authentication, or data sources"
-          hints:
-            readOnly: false
-            destructive: false
-            idempotent: true
-          call: "managed-grafana.update-workspace"
-          outputParameters:
-            - type: object
-              mapping: "$."
+  - type: rest
+    port: 8080
+    namespace: grafana-dashboard-api
+    description: Unified REST API for Grafana observability dashboard workflows.
+    resources:
+    - path: /v1/workspaces
+      name: workspaces
+      description: Grafana workspaces
+      operations:
+      - method: GET
+        name: list-workspaces
+        description: List workspaces
+        call: managed-grafana.list-workspaces
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: create-workspace
+        description: Create a workspace
+        call: managed-grafana.create-workspace
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: grafana-dashboard-mcp
+    transport: http
+    description: MCP server for AI-assisted Grafana observability management.
+    tools:
+    - name: list-grafana-workspaces
+      description: List all Grafana workspaces for observability dashboards
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: managed-grafana.list-workspaces
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-grafana-workspace
+      description: Create a new Grafana workspace for observability dashboards
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: managed-grafana.create-workspace
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-workspace-details
+      description: Get configuration and authentication details of a Grafana workspace
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: managed-grafana.describe-workspace
+      with:
+        workspaceId: tools.workspaceId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-workspace-api-key
+      description: Create an API key for programmatic Grafana workspace access
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: managed-grafana.create-workspace-api-key
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-workspace
+      description: Update Grafana workspace configuration, authentication, or data sources
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: managed-grafana.update-workspace
+      outputParameters:
+      - type: object
+        mapping: $.
