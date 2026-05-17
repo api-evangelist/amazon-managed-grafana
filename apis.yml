@@ -51,7 +51,7 @@ apis:
         url: json-schema/amazon-managed-grafana-workspace-summary-schema.json
       - type: JSONStructure
         url: json-structure/amazon-managed-grafana-workspace-summary-structure.json
-      - type: JSON-LD
+      - type: JSONLD
         url: json-ld/amazon-managed-grafana-context.jsonld
 common:
   - type: Portal
