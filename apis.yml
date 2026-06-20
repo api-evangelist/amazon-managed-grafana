@@ -5,7 +5,7 @@ description: Amazon Managed Grafana is a fully managed service for open source G
   sources including AWS services, third-party ISVs, and on-premises data. The service handles provisioning, setup, scaling,
   and maintenance of Grafana, allowing teams to focus on creating dashboards and analyzing data.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
 - AWS
 - Dashboards
