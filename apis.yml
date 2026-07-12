@@ -49,6 +49,14 @@ apis:
   - type: X-NaftikoCapability
     url: capabilities/amazon-managed-grafana.yaml
 common:
+- type: TrustCenter
+  url: security/amazon-managed-grafana-trust-center.yml
+- type: VulnerabilityDisclosure
+  url: security/amazon-managed-grafana-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/amazon-managed-grafana-domain-security.yml
+- type: Authentication
+  url: authentication/amazon-managed-grafana-authentication.yml
 - type: Portal
   url: https://aws.amazon.com/grafana/
 - type: Documentation
