@@ -49,6 +49,8 @@ apis:
   - type: X-NaftikoCapability
     url: capabilities/amazon-managed-grafana.yaml
 common:
+- type: AgenticAccess
+  url: agentic-access/amazon-managed-grafana-agentic-access.yml
 - type: TrustCenter
   url: security/amazon-managed-grafana-trust-center.yml
 - type: VulnerabilityDisclosure
