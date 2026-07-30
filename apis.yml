@@ -5,7 +5,20 @@ description: Amazon Managed Grafana is a fully managed service for open source G
   sources including AWS services, third-party ISVs, and on-premises data. The service handles provisioning, setup, scaling,
   and maintenance of Grafana, allowing teams to focus on creating dashboards and analyzing data.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/amazon-managed-grafana.png
 tags:
 - AWS
 - Dashboards
@@ -17,23 +30,70 @@ created: '2026-03-16'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-- aid: amazon-managed-grafana:amazon-managed-grafana-api
-  name: Amazon Managed Grafana API
-  description: The Amazon Managed Grafana API provides programmatic access to create and manage Grafana workspaces, users,
-    SAML configurations, and workspace API keys for managed Grafana deployments. Covers workspace lifecycle management, authentication
-    configuration, license association, and access control across all managed Grafana resources.
+- aid: amazon-managed-grafana:amazon-managed-grafana-tags-api
+  name: Amazon Managed Grafana Tags API
+  description: The Tags API from Amazon Managed Grafana — 2 operation(s) for tags.
   humanURL: https://aws.amazon.com/grafana/
   baseURL: https://grafana.amazonaws.com
   tags:
-  - Dashboards
-  - Monitoring
-  - Observability
-  - Visualization
+  - Tags
   properties:
+  - type: OpenAPI
+    url: openapi/amazon-managed-grafana-tags-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/grafana/latest/APIReference/Welcome.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/grafana/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/grafana/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/grafana/faqs/
+  - type: JSONSchema
+    url: json-schema/amazon-managed-grafana-workspace-summary-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-managed-grafana-workspace-summary-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-managed-grafana-context.jsonld
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-managed-grafana.yaml
+- aid: amazon-managed-grafana:amazon-managed-grafana-versions-api
+  name: Amazon Managed Grafana Versions API
+  description: The Versions API from Amazon Managed Grafana — 1 operation(s) for versions.
+  humanURL: https://aws.amazon.com/grafana/
+  baseURL: https://grafana.amazonaws.com
+  tags:
+  - Versions
+  properties:
   - type: OpenAPI
-    url: openapi/amazon-managed-grafana-openapi-original.yaml
+    url: openapi/amazon-managed-grafana-versions-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/grafana/latest/APIReference/Welcome.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/grafana/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/grafana/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/grafana/faqs/
+  - type: JSONSchema
+    url: json-schema/amazon-managed-grafana-workspace-summary-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-managed-grafana-workspace-summary-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-managed-grafana-context.jsonld
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-managed-grafana.yaml
+- aid: amazon-managed-grafana:amazon-managed-grafana-workspaces-api
+  name: Amazon Managed Grafana Workspaces API
+  description: The Workspaces API from Amazon Managed Grafana — 8 operation(s) for workspaces.
+  humanURL: https://aws.amazon.com/grafana/
+  baseURL: https://grafana.amazonaws.com
+  tags:
+  - Workspaces
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-managed-grafana-workspaces-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/grafana/latest/APIReference/Welcome.html
   - type: GettingStarted
     url: https://aws.amazon.com/grafana/getting-started/
   - type: Pricing
@@ -49,6 +109,8 @@ apis:
   - type: X-NaftikoCapability
     url: capabilities/amazon-managed-grafana.yaml
 common:
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/amazon-managed-grafana/overview
 - type: AgenticAccess
   url: agentic-access/amazon-managed-grafana-agentic-access.yml
 - type: TrustCenter
