@@ -1,0 +1,18 @@
+{
+  "provider": "amazon-managed-grafana",
+  "sources": [
+    "amazon-managed-grafana-tags-api-openapi.yml",
+    "amazon-managed-grafana-versions-api-openapi.yml",
+    "amazon-managed-grafana-workspaces-api-openapi.yml"
+  ],
+  "outputs": [
+    "amazon-managed-grafana-tags-api-openapi.yml",
+    "amazon-managed-grafana-versions-api-openapi.yml",
+    "amazon-managed-grafana-workspaces-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

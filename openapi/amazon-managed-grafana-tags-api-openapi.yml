@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: '2020-08-18'
+  version: "1.0.0"
   x-release: v4
   title: Amazon Managed Grafana Tags API
   description: <p>Amazon Managed Grafana is a fully managed and secure data visualization service that you can use to instantly query, correlate, and visualize operational metrics, logs, and traces from multiple sources. Amazon Managed Grafana makes it easy to deploy, operate, and scale Grafana, a widely deployed data visualization tool that is popular for its extensible data support.</p> <p>With Amazon Managed Grafana, you create logically isolated Grafana servers called <i>workspaces</i>. In a workspace, you can create Grafana dashboards and visualizations to analyze your metrics, logs, and traces without having to build, package, or deploy any hardware to run Grafana servers. </p>
@@ -24,7 +24,6 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/grafana-2020-08-18.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
-      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct

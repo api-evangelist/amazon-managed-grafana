@@ -1,0 +1,641 @@
+{
+  "info": {
+    "_postman_id": "44d5ae39-b548-4edf-9f21-c684e2975158",
+    "name": "Amazon Managed Grafana Tags Versions API",
+    "description": "<p>Amazon Managed Grafana is a fully managed and secure data visualization service that you can use to instantly query, correlate, and visualize operational metrics, logs, and traces from multiple sources. Amazon Managed Grafana makes it easy to deploy, operate, and scale Grafana, a widely deployed data visualization tool that is popular for its extensible data support.</p> <p>With Amazon Managed Grafana, you create logically isolated Grafana servers called <i>workspaces</i>. In a workspace, you can create Grafana dashboards and visualizations to analyze your metrics, logs, and traces without having to build, package, or deploy any hardware to run Grafana servers. </p>\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:37:33.000Z",
+    "updatedAt": "2026-07-28T10:37:34.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-44d5ae39-b548-4edf-9f21-c684e2975158"
+  },
+  "item": [
+    {
+      "name": "versions",
+      "item": [
+        {
+          "name": "Amazon Managed Grafana List Versions",
+          "id": "918addbc-af52-452d-a72b-891ef48176f5",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/versions?maxResults=<integer>&nextToken=<string>&workspace-id=g-35eea7059d",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "versions"
+              ],
+              "query": [
+                {
+                  "description": "The maximum number of results to include in the response.",
+                  "key": "maxResults",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "The token to use when requesting the next set of results. You receive this token from a previous <code>ListVersions</code> operation.",
+                  "key": "nextToken",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The ID of the workspace to list the available upgrade versions. If not included, lists all versions of Grafana that are supported for <code>CreateWorkspace</code>.",
+                  "key": "workspace-id",
+                  "value": "g-35eea7059d"
+                }
+              ]
+            },
+            "description": "Lists available versions of Grafana. These are available when calling <code>CreateWorkspace</code>. Optionally, include a workspace to list the versions to which it can be upgraded."
+          },
+          "response": [
+            {
+              "id": "001febd4-326e-480d-906b-405a19ac9957",
+              "name": "Success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/versions?maxResults=<integer>&nextToken=<string>&workspace-id=g-35eea7059d",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "versions"
+                  ],
+                  "query": [
+                    {
+                      "description": "The maximum number of results to include in the response.",
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The token to use when requesting the next set of results. You receive this token from a previous <code>ListVersions</code> operation.",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the workspace to list the available upgrade versions. If not included, lists all versions of Grafana that are supported for <code>CreateWorkspace</code>.",
+                      "key": "workspace-id",
+                      "value": "g-35eea7059d"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"grafanaVersions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"nextToken\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T10:37:34.000Z",
+              "updatedAt": "2026-07-28T10:37:34.000Z",
+              "uid": "35240-001febd4-326e-480d-906b-405a19ac9957"
+            },
+            {
+              "id": "2632b1e8-7999-40a3-90a5-b85d0369d238",
+              "name": "ResourceNotFoundException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/versions?maxResults=<integer>&nextToken=<string>&workspace-id=g-35eea7059d",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "versions"
+                  ],
+                  "query": [
+                    {
+                      "description": "The maximum number of results to include in the response.",
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The token to use when requesting the next set of results. You receive this token from a previous <code>ListVersions</code> operation.",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the workspace to list the available upgrade versions. If not included, lists all versions of Grafana that are supported for <code>CreateWorkspace</code>.",
+                      "key": "workspace-id",
+                      "value": "g-35eea7059d"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:37:34.000Z",
+              "updatedAt": "2026-07-28T10:37:34.000Z",
+              "uid": "35240-2632b1e8-7999-40a3-90a5-b85d0369d238"
+            },
+            {
+              "id": "0d07f884-febc-4318-b21b-0ec8c5120f14",
+              "name": "ThrottlingException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/versions?maxResults=<integer>&nextToken=<string>&workspace-id=g-35eea7059d",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "versions"
+                  ],
+                  "query": [
+                    {
+                      "description": "The maximum number of results to include in the response.",
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The token to use when requesting the next set of results. You receive this token from a previous <code>ListVersions</code> operation.",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the workspace to list the available upgrade versions. If not included, lists all versions of Grafana that are supported for <code>CreateWorkspace</code>.",
+                      "key": "workspace-id",
+                      "value": "g-35eea7059d"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:37:34.000Z",
+              "updatedAt": "2026-07-28T10:37:34.000Z",
+              "uid": "35240-0d07f884-febc-4318-b21b-0ec8c5120f14"
+            },
+            {
+              "id": "5d4e3bf3-3912-4fdd-9e45-5a2f75e04f0e",
+              "name": "ValidationException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/versions?maxResults=<integer>&nextToken=<string>&workspace-id=g-35eea7059d",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "versions"
+                  ],
+                  "query": [
+                    {
+                      "description": "The maximum number of results to include in the response.",
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The token to use when requesting the next set of results. You receive this token from a previous <code>ListVersions</code> operation.",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the workspace to list the available upgrade versions. If not included, lists all versions of Grafana that are supported for <code>CreateWorkspace</code>.",
+                      "key": "workspace-id",
+                      "value": "g-35eea7059d"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:37:34.000Z",
+              "updatedAt": "2026-07-28T10:37:34.000Z",
+              "uid": "35240-5d4e3bf3-3912-4fdd-9e45-5a2f75e04f0e"
+            },
+            {
+              "id": "40a167fb-6125-44f0-a90e-bdeffc8751e9",
+              "name": "AccessDeniedException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/versions?maxResults=<integer>&nextToken=<string>&workspace-id=g-35eea7059d",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "versions"
+                  ],
+                  "query": [
+                    {
+                      "description": "The maximum number of results to include in the response.",
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The token to use when requesting the next set of results. You receive this token from a previous <code>ListVersions</code> operation.",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the workspace to list the available upgrade versions. If not included, lists all versions of Grafana that are supported for <code>CreateWorkspace</code>.",
+                      "key": "workspace-id",
+                      "value": "g-35eea7059d"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:37:34.000Z",
+              "updatedAt": "2026-07-28T10:37:34.000Z",
+              "uid": "35240-40a167fb-6125-44f0-a90e-bdeffc8751e9"
+            },
+            {
+              "id": "a6988c58-cfd1-4a05-bd65-71be552aaff1",
+              "name": "InternalServerException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/versions?maxResults=<integer>&nextToken=<string>&workspace-id=g-35eea7059d",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "versions"
+                  ],
+                  "query": [
+                    {
+                      "description": "The maximum number of results to include in the response.",
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The token to use when requesting the next set of results. You receive this token from a previous <code>ListVersions</code> operation.",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the workspace to list the available upgrade versions. If not included, lists all versions of Grafana that are supported for <code>CreateWorkspace</code>.",
+                      "key": "workspace-id",
+                      "value": "g-35eea7059d"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:37:34.000Z",
+              "updatedAt": "2026-07-28T10:37:34.000Z",
+              "uid": "35240-a6988c58-cfd1-4a05-bd65-71be552aaff1"
+            }
+          ],
+          "createdAt": "2026-07-28T10:37:34.000Z",
+          "updatedAt": "2026-07-28T10:37:34.000Z",
+          "uid": "35240-918addbc-af52-452d-a72b-891ef48176f5"
+        }
+      ],
+      "id": "822801a0-c6cb-4a9c-9f6b-49bb55330278",
+      "createdAt": "2026-07-28T10:37:34.000Z",
+      "updatedAt": "2026-07-28T10:37:34.000Z",
+      "uid": "35240-822801a0-c6cb-4a9c-9f6b-49bb55330278"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://grafana.{{region}}.amazonaws.com"
+    }
+  ]
+}
