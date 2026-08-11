@@ -54,8 +54,6 @@ apis:
     url: json-structure/amazon-managed-grafana-workspace-summary-structure.json
   - type: JSONLD
     url: json-ld/amazon-managed-grafana-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-managed-grafana.yaml
 - aid: amazon-managed-grafana:amazon-managed-grafana-versions-api
   name: Amazon Managed Grafana Versions API
   description: The Versions API from Amazon Managed Grafana — 1 operation(s) for versions.
@@ -80,8 +78,6 @@ apis:
     url: json-structure/amazon-managed-grafana-workspace-summary-structure.json
   - type: JSONLD
     url: json-ld/amazon-managed-grafana-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-managed-grafana.yaml
 - aid: amazon-managed-grafana:amazon-managed-grafana-workspaces-api
   name: Amazon Managed Grafana Workspaces API
   description: The Workspaces API from Amazon Managed Grafana — 8 operation(s) for workspaces.
@@ -106,8 +102,6 @@ apis:
     url: json-structure/amazon-managed-grafana-workspace-summary-structure.json
   - type: JSONLD
     url: json-ld/amazon-managed-grafana-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-managed-grafana.yaml
 common:
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/amazon-managed-grafana/overview
