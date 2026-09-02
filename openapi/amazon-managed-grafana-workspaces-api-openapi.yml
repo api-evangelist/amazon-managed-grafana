@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 1.0.0
   x-release: v4
   title: Amazon Managed Grafana Tags Workspaces API
   description: <p>Amazon Managed Grafana is a fully managed and secure data visualization service that you can use to instantly query, correlate, and visualize operational metrics, logs, and traces from multiple sources. Amazon Managed Grafana makes it easy to deploy, operate, and scale Grafana, a widely deployed data visualization tool that is popular for its extensible data support.</p> <p>With Amazon Managed Grafana, you create logically isolated Grafana servers called <i>workspaces</i>. In a workspace, you can create Grafana dashboards and visualizations to analyze your metrics, logs, and traces without having to build, package, or deploy any hardware to run Grafana servers. </p>
@@ -1349,15 +1349,337 @@ paths:
       - Workspaces
 components:
   schemas:
-    SecurityGroupId:
+    String:
+      type: string
+    ValidationException: {}
+    ServiceQuotaExceededException: {}
+    ApiKeyName:
+      type: string
+      minLength: 1
+      maxLength: 100
+    User:
+      type: object
+      required:
+      - id
+      - type
+      properties:
+        id:
+          allOf:
+          - $ref: '#/components/schemas/SsoId'
+          - description: '<p>The ID of the user or group.</p> <p>Pattern: <code>^([0-9a-fA-F]{10}-|)[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}$</code> </p>'
+        type:
+          allOf:
+          - $ref: '#/components/schemas/UserType'
+          - description: Specifies whether this is a single user or a group.
+      description: A structure that specifies one user or group in the workspace.
+    Description:
       type: string
       minLength: 0
-      maxLength: 255
-    ResourceNotFoundException: {}
+      maxLength: 2048
+      format: password
+    AllowedOrganizations:
+      type: array
+      items:
+        $ref: '#/components/schemas/AllowedOrganization'
+    UpdateErrorList:
+      type: array
+      items:
+        $ref: '#/components/schemas/UpdateError'
+    OrganizationalUnit:
+      type: string
     RoleValue:
       type: string
       minLength: 1
       maxLength: 256
+    Boolean:
+      type: boolean
+    IamRoleArn:
+      type: string
+      minLength: 1
+      maxLength: 2048
+      format: password
+    RoleValueList:
+      type: array
+      items:
+        $ref: '#/components/schemas/RoleValue'
+    PermissionType:
+      type: string
+      enum:
+      - CUSTOMER_MANAGED
+      - SERVICE_MANAGED
+    Endpoint:
+      type: string
+      minLength: 1
+      maxLength: 2048
+    SubnetIds:
+      type: array
+      items:
+        $ref: '#/components/schemas/SubnetId'
+      minItems: 1
+      maxItems: 100
+    AssertionAttributes:
+      type: object
+      properties:
+        email:
+          allOf:
+          - $ref: '#/components/schemas/AssertionAttribute'
+          - description: The name of the attribute within the SAML assertion to use as the email names for SAML users.
+        groups:
+          allOf:
+          - $ref: '#/components/schemas/AssertionAttribute'
+          - description: The name of the attribute within the SAML assertion to use as the user full "friendly" names for user groups.
+        login:
+          allOf:
+          - $ref: '#/components/schemas/AssertionAttribute'
+          - description: The name of the attribute within the SAML assertion to use as the login names for SAML users.
+        name:
+          allOf:
+          - $ref: '#/components/schemas/AssertionAttribute'
+          - description: The name of the attribute within the SAML assertion to use as the user full "friendly" names for SAML users.
+        org:
+          allOf:
+          - $ref: '#/components/schemas/AssertionAttribute'
+          - description: The name of the attribute within the SAML assertion to use as the user full "friendly" names for the users' organizations.
+        role:
+          allOf:
+          - $ref: '#/components/schemas/AssertionAttribute'
+          - description: The name of the attribute within the SAML assertion to use as the user roles.
+      description: A structure that defines which attributes in the IdP assertion are to be used to define information about the users authenticated by the IdP to use the workspace.
+    ConflictException: {}
+    AccountAccessType:
+      type: string
+      enum:
+      - CURRENT_ACCOUNT
+      - ORGANIZATION
+    LoginValidityDuration:
+      type: integer
+    WorkspaceSummary:
+      type: object
+      required:
+      - authentication
+      - created
+      - endpoint
+      - grafanaVersion
+      - id
+      - modified
+      - status
+      properties:
+        authentication:
+          allOf:
+          - $ref: '#/components/schemas/AuthenticationSummary'
+          - description: A structure containing information about the authentication methods used in the workspace.
+        created:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The date that the workspace was created.
+        description:
+          allOf:
+          - $ref: '#/components/schemas/Description'
+          - description: The customer-entered description of the workspace.
+        endpoint:
+          allOf:
+          - $ref: '#/components/schemas/Endpoint'
+          - description: The URL endpoint to use to access the Grafana console in the workspace.
+        grafanaVersion:
+          allOf:
+          - $ref: '#/components/schemas/GrafanaVersion'
+          - description: The Grafana version that the workspace is running.
+        id:
+          allOf:
+          - $ref: '#/components/schemas/WorkspaceId'
+          - description: The unique ID of the workspace.
+        modified:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The most recent date that the workspace was modified.
+        name:
+          allOf:
+          - $ref: '#/components/schemas/WorkspaceName'
+          - description: The name of the workspace.
+        notificationDestinations:
+          allOf:
+          - $ref: '#/components/schemas/NotificationDestinationsList'
+          - description: The Amazon Web Services notification channels that Amazon Managed Grafana can automatically create IAM roles and permissions for, which allows Amazon Managed Grafana to use these channels.
+        status:
+          allOf:
+          - $ref: '#/components/schemas/WorkspaceStatus'
+          - description: The current status of the workspace.
+        tags:
+          allOf:
+          - $ref: '#/components/schemas/TagMap'
+          - description: The list of tags associated with the workspace.
+      description: A structure that contains some information about one workspace in the account.
+    UpdateWorkspaceConfigurationResponse:
+      type: object
+      properties: {}
+    SubnetId:
+      type: string
+      minLength: 0
+      maxLength: 255
+    StackSetName:
+      type: string
+    PrefixListId:
+      type: string
+      minLength: 1
+      maxLength: 100
+    SSOClientId:
+      type: string
+    AuthenticationProviders:
+      type: array
+      items:
+        $ref: '#/components/schemas/AuthenticationProviderTypes'
+    DataSourceTypesList:
+      type: array
+      items:
+        $ref: '#/components/schemas/DataSourceType'
+    CreateWorkspaceResponse:
+      type: object
+      required:
+      - workspace
+      properties:
+        workspace:
+          allOf:
+          - $ref: '#/components/schemas/WorkspaceDescription'
+          - description: A structure containing data about the workspace that was created.
+    NotificationDestinationType:
+      type: string
+      enum:
+      - SNS
+    AwsSsoAuthentication:
+      type: object
+      properties:
+        ssoClientId:
+          allOf:
+          - $ref: '#/components/schemas/SSOClientId'
+          - description: The ID of the IAM Identity Center-managed application that is created by Amazon Managed Grafana.
+      description: 'A structure containing information about how this workspace works with IAM Identity Center. '
+    AccessDeniedException: {}
+    Timestamp:
+      type: string
+      format: date-time
+    AssertionAttribute:
+      type: string
+      minLength: 1
+      maxLength: 256
+    Role:
+      type: string
+      enum:
+      - ADMIN
+      - EDITOR
+      - VIEWER
+    PermissionEntryList:
+      type: array
+      items:
+        $ref: '#/components/schemas/PermissionEntry'
+    UpdateWorkspaceAuthenticationResponse:
+      type: object
+      required:
+      - authentication
+      properties:
+        authentication:
+          allOf:
+          - $ref: '#/components/schemas/AuthenticationDescription'
+          - description: A structure that describes the user authentication for this workspace after the update is made.
+    VpcConfiguration:
+      type: object
+      required:
+      - securityGroupIds
+      - subnetIds
+      properties:
+        securityGroupIds:
+          allOf:
+          - $ref: '#/components/schemas/SecurityGroupIds'
+          - description: The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana workspace to connect. Duplicates not allowed.
+        subnetIds:
+          allOf:
+          - $ref: '#/components/schemas/SubnetIds'
+          - description: The list of Amazon EC2 subnet IDs created in the Amazon VPC for your Grafana workspace to connect. Duplicates not allowed.
+      description: <p>The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to.</p> <note> <p>Provided <code>securityGroupIds</code> and <code>subnetIds</code> must be part of the same VPC.</p> <p>Connecting to a private VPC is not yet available in the Asia Pacific (Seoul) Region (ap-northeast-2).</p> </note>
+    TagValue:
+      type: string
+      minLength: 0
+      maxLength: 256
+    AssociateLicenseResponse:
+      type: object
+      required:
+      - workspace
+      properties:
+        workspace:
+          allOf:
+          - $ref: '#/components/schemas/WorkspaceDescription'
+          - description: A structure containing data about the workspace.
+    DataSourceType:
+      type: string
+      enum:
+      - AMAZON_OPENSEARCH_SERVICE
+      - CLOUDWATCH
+      - PROMETHEUS
+      - XRAY
+      - TIMESTREAM
+      - SITEWISE
+      - ATHENA
+      - REDSHIFT
+      - TWINMAKER
+    UserType:
+      type: string
+      enum:
+      - SSO_USER
+      - SSO_GROUP
+    ThrottlingException: {}
+    TagMap:
+      type: object
+      minProperties: 0
+      maxProperties: 50
+      additionalProperties:
+        $ref: '#/components/schemas/TagValue'
+    ListPermissionsResponse:
+      type: object
+      required:
+      - permissions
+      properties:
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/PaginationToken'
+          - description: The token to use in a subsequent <code>ListPermissions</code> operation to return the next set of results.
+        permissions:
+          allOf:
+          - $ref: '#/components/schemas/PermissionEntryList'
+          - description: The permissions returned by the operation.
+    DescribeWorkspaceResponse:
+      type: object
+      required:
+      - workspace
+      properties:
+        workspace:
+          allOf:
+          - $ref: '#/components/schemas/WorkspaceDescription'
+          - description: A structure containing information about the workspace.
+    SamlConfiguration:
+      type: object
+      required:
+      - idpMetadata
+      properties:
+        allowedOrganizations:
+          allOf:
+          - $ref: '#/components/schemas/AllowedOrganizations'
+          - description: Lists which organizations defined in the SAML assertion are allowed to use the Amazon Managed Grafana workspace. If this is empty, all organizations in the assertion attribute have access.
+        assertionAttributes:
+          allOf:
+          - $ref: '#/components/schemas/AssertionAttributes'
+          - description: A structure that defines which attributes in the SAML assertion are to be used to define information about the users authenticated by that IdP to use the workspace.
+        idpMetadata:
+          allOf:
+          - $ref: '#/components/schemas/IdpMetadata'
+          - description: A structure containing the identity provider (IdP) metadata used to integrate the identity provider with this workspace.
+        loginValidityDuration:
+          allOf:
+          - $ref: '#/components/schemas/LoginValidityDuration'
+          - description: How long a sign-on session by a SAML user is valid, before the user has to sign on again.
+        roleValues:
+          allOf:
+          - $ref: '#/components/schemas/RoleValues'
+          - description: A structure containing arrays that map group names in the SAML assertion to the Grafana <code>Admin</code> and <code>Editor</code> roles in the workspace.
+      description: 'A structure containing information about how this workspace works with SAML. '
     CreateWorkspaceApiKeyResponse:
       type: object
       required:
@@ -1377,6 +1699,116 @@ components:
           allOf:
           - $ref: '#/components/schemas/WorkspaceId'
           - description: The ID of the workspace that the key is valid for.
+    UserList:
+      type: array
+      items:
+        $ref: '#/components/schemas/User'
+    InternalServerException: {}
+    NotificationDestinationsList:
+      type: array
+      items:
+        $ref: '#/components/schemas/NotificationDestinationType'
+    AuthenticationSummary:
+      type: object
+      required:
+      - providers
+      properties:
+        providers:
+          allOf:
+          - $ref: '#/components/schemas/AuthenticationProviders'
+          - description: Specifies whether the workspace uses SAML, IAM Identity Center, or both methods for user authentication.
+        samlConfigurationStatus:
+          allOf:
+          - $ref: '#/components/schemas/SamlConfigurationStatus'
+          - description: Specifies whether the workplace's user authentication method is fully configured.
+      description: A structure that describes whether the workspace uses SAML, IAM Identity Center, or both methods for user authentication, and whether that authentication is fully configured.
+    NetworkAccessConfiguration:
+      type: object
+      required:
+      - prefixListIds
+      - vpceIds
+      properties:
+        prefixListIds:
+          allOf:
+          - $ref: '#/components/schemas/PrefixListIds'
+          - description: <p>An array of prefix list IDs. A prefix list is a list of CIDR ranges of IP addresses. The IP addresses specified are allowed to access your workspace. If the list is not included in the configuration (passed an empty array) then no IP addresses are allowed to access the workspace. You create a prefix list using the Amazon VPC console.</p> <p>Prefix list IDs have the format <code>pl-<i>1a2b3c4d</i> </code>.</p> <p>For more information about prefix lists, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/managed-prefix-lists.html">Group CIDR blocks using managed prefix lists</a>in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+        vpceIds:
+          allOf:
+          - $ref: '#/components/schemas/VpceIds'
+          - description: <p>An array of Amazon VPC endpoint IDs for the workspace. You can create VPC endpoints to your Amazon Managed Grafana workspace for access from within a VPC. If a <code>NetworkAccessConfiguration</code> is specified then only VPC endpoints specified here are allowed to access the workspace. If you pass in an empty array of strings, then no VPCs are allowed to access the workspace.</p> <p>VPC endpoint IDs have the format <code>vpce-<i>1a2b3c4d</i> </code>.</p> <p>For more information about creating an interface VPC endpoint, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/VPC-endpoints">Interface VPC endpoints</a> in the <i>Amazon Managed Grafana User Guide</i>.</p> <note> <p>The only VPC endpoints that can be specified here are interface VPC endpoints for Grafana workspaces (using the <code>com.amazonaws.[region].grafana-workspace</code> service endpoint). Other VPC endpoints are ignored.</p> </note>
+      description: <p>The configuration settings for in-bound network access to your workspace.</p> <p>When this is configured, only listed IP addresses and VPC endpoints will be able to access your workspace. Standard Grafana authentication and authorization are still required.</p> <p>Access is granted to a caller that is in either the IP address list or the VPC endpoint list - they do not need to be in both.</p> <p>If this is not configured, or is removed, then all IP addresses and VPC endpoints are allowed. Standard Grafana authentication and authorization are still required.</p> <note> <p>While both <code>prefixListIds</code> and <code>vpceIds</code> are required, you can pass in an empty array of strings for either parameter if you do not want to allow any of that type.</p> <p>If both are passed as empty arrays, no traffic is allowed to the workspace, because only <i>explicitly</i> allowed connections are accepted.</p> </note>
+    PrefixListIds:
+      type: array
+      items:
+        $ref: '#/components/schemas/PrefixListId'
+    VpceIds:
+      type: array
+      items:
+        $ref: '#/components/schemas/VpceId'
+    ApiKeyToken:
+      type: string
+      format: password
+    SamlConfigurationStatus:
+      type: string
+      enum:
+      - CONFIGURED
+      - NOT_CONFIGURED
+    PaginationToken:
+      type: string
+    VpceId:
+      type: string
+      minLength: 1
+      maxLength: 100
+    SsoId:
+      type: string
+      minLength: 1
+      maxLength: 47
+    SecurityGroupIds:
+      type: array
+      items:
+        $ref: '#/components/schemas/SecurityGroupId'
+      minItems: 1
+      maxItems: 100
+    DeleteWorkspaceApiKeyResponse:
+      type: object
+      required:
+      - keyName
+      - workspaceId
+      properties:
+        keyName:
+          allOf:
+          - $ref: '#/components/schemas/ApiKeyName'
+          - description: The name of the key that was deleted.
+        workspaceId:
+          allOf:
+          - $ref: '#/components/schemas/WorkspaceId'
+          - description: The ID of the workspace where the key was deleted.
+    GrafanaVersion:
+      type: string
+      minLength: 1
+      maxLength: 255
+    DescribeWorkspaceConfigurationResponse:
+      type: object
+      required:
+      - configuration
+      properties:
+        configuration:
+          allOf:
+          - $ref: '#/components/schemas/OverridableConfigurationJson'
+          - description: The configuration string for the workspace that you requested. For more information about the format and configuration options available, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html">Working in your Grafana workspace</a>.
+        grafanaVersion:
+          allOf:
+          - $ref: '#/components/schemas/GrafanaVersion'
+          - description: The supported Grafana version for the workspace.
+    UpdateWorkspaceResponse:
+      type: object
+      required:
+      - workspace
+      properties:
+        workspace:
+          allOf:
+          - $ref: '#/components/schemas/WorkspaceDescription'
+          - description: A structure containing data about the workspace that was created.
     UpdateError:
       type: object
       required:
@@ -1397,140 +1829,10 @@ components:
           - $ref: '#/components/schemas/String'
           - description: The message for this error.
       description: A structure containing information about one error encountered while performing an <a href="https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdatePermissions.html">UpdatePermissions</a> operation.
-    IdpMetadata:
-      type: object
-      properties:
-        url:
-          allOf:
-          - $ref: '#/components/schemas/IdpMetadataUrl'
-          - description: The URL of the location containing the IdP metadata.
-        xml:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The full IdP metadata, in XML format.
-      description: A structure containing the identity provider (IdP) metadata used to integrate the identity provider with this workspace. You can specify the metadata either by providing a URL to its location in the <code>url</code> parameter, or by specifying the full metadata in XML format in the <code>xml</code> parameter. Specifying both will cause an error.
-    RoleValueList:
-      type: array
-      items:
-        $ref: '#/components/schemas/RoleValue'
-    AccountAccessType:
-      type: string
-      enum:
-      - CURRENT_ACCOUNT
-      - ORGANIZATION
-    PrefixListId:
+    AllowedOrganization:
       type: string
       minLength: 1
-      maxLength: 100
-    UpdateAction:
-      type: string
-      enum:
-      - ADD
-      - REVOKE
-    SamlConfigurationStatus:
-      type: string
-      enum:
-      - CONFIGURED
-      - NOT_CONFIGURED
-    AssociateLicenseResponse:
-      type: object
-      required:
-      - workspace
-      properties:
-        workspace:
-          allOf:
-          - $ref: '#/components/schemas/WorkspaceDescription'
-          - description: A structure containing data about the workspace.
-    NetworkAccessConfiguration:
-      type: object
-      required:
-      - prefixListIds
-      - vpceIds
-      properties:
-        prefixListIds:
-          allOf:
-          - $ref: '#/components/schemas/PrefixListIds'
-          - description: <p>An array of prefix list IDs. A prefix list is a list of CIDR ranges of IP addresses. The IP addresses specified are allowed to access your workspace. If the list is not included in the configuration (passed an empty array) then no IP addresses are allowed to access the workspace. You create a prefix list using the Amazon VPC console.</p> <p>Prefix list IDs have the format <code>pl-<i>1a2b3c4d</i> </code>.</p> <p>For more information about prefix lists, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/managed-prefix-lists.html">Group CIDR blocks using managed prefix lists</a>in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
-        vpceIds:
-          allOf:
-          - $ref: '#/components/schemas/VpceIds'
-          - description: <p>An array of Amazon VPC endpoint IDs for the workspace. You can create VPC endpoints to your Amazon Managed Grafana workspace for access from within a VPC. If a <code>NetworkAccessConfiguration</code> is specified then only VPC endpoints specified here are allowed to access the workspace. If you pass in an empty array of strings, then no VPCs are allowed to access the workspace.</p> <p>VPC endpoint IDs have the format <code>vpce-<i>1a2b3c4d</i> </code>.</p> <p>For more information about creating an interface VPC endpoint, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/VPC-endpoints">Interface VPC endpoints</a> in the <i>Amazon Managed Grafana User Guide</i>.</p> <note> <p>The only VPC endpoints that can be specified here are interface VPC endpoints for Grafana workspaces (using the <code>com.amazonaws.[region].grafana-workspace</code> service endpoint). Other VPC endpoints are ignored.</p> </note>
-      description: <p>The configuration settings for in-bound network access to your workspace.</p> <p>When this is configured, only listed IP addresses and VPC endpoints will be able to access your workspace. Standard Grafana authentication and authorization are still required.</p> <p>Access is granted to a caller that is in either the IP address list or the VPC endpoint list - they do not need to be in both.</p> <p>If this is not configured, or is removed, then all IP addresses and VPC endpoints are allowed. Standard Grafana authentication and authorization are still required.</p> <note> <p>While both <code>prefixListIds</code> and <code>vpceIds</code> are required, you can pass in an empty array of strings for either parameter if you do not want to allow any of that type.</p> <p>If both are passed as empty arrays, no traffic is allowed to the workspace, because only <i>explicitly</i> allowed connections are accepted.</p> </note>
-    DataSourceType:
-      type: string
-      enum:
-      - AMAZON_OPENSEARCH_SERVICE
-      - CLOUDWATCH
-      - PROMETHEUS
-      - XRAY
-      - TIMESTREAM
-      - SITEWISE
-      - ATHENA
-      - REDSHIFT
-      - TWINMAKER
-    RoleValues:
-      type: object
-      properties:
-        admin:
-          allOf:
-          - $ref: '#/components/schemas/RoleValueList'
-          - description: A list of groups from the SAML assertion attribute to grant the Grafana <code>Admin</code> role to.
-        editor:
-          allOf:
-          - $ref: '#/components/schemas/RoleValueList'
-          - description: A list of groups from the SAML assertion attribute to grant the Grafana <code>Editor</code> role to.
-      description: This structure defines which groups defined in the SAML assertion attribute are to be mapped to the Grafana <code>Admin</code> and <code>Editor</code> roles in the workspace. SAML authenticated users not part of <code>Admin</code> or <code>Editor</code> role groups have <code>Viewer</code> permission over the workspace.
-    DescribeWorkspaceResponse:
-      type: object
-      required:
-      - workspace
-      properties:
-        workspace:
-          allOf:
-          - $ref: '#/components/schemas/WorkspaceDescription'
-          - description: A structure containing information about the workspace.
-    VpcConfiguration:
-      type: object
-      required:
-      - securityGroupIds
-      - subnetIds
-      properties:
-        securityGroupIds:
-          allOf:
-          - $ref: '#/components/schemas/SecurityGroupIds'
-          - description: The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana workspace to connect. Duplicates not allowed.
-        subnetIds:
-          allOf:
-          - $ref: '#/components/schemas/SubnetIds'
-          - description: The list of Amazon EC2 subnet IDs created in the Amazon VPC for your Grafana workspace to connect. Duplicates not allowed.
-      description: <p>The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to.</p> <note> <p>Provided <code>securityGroupIds</code> and <code>subnetIds</code> must be part of the same VPC.</p> <p>Connecting to a private VPC is not yet available in the Asia Pacific (Seoul) Region (ap-northeast-2).</p> </note>
-    NotificationDestinationsList:
-      type: array
-      items:
-        $ref: '#/components/schemas/NotificationDestinationType'
-    AuthenticationProviderTypes:
-      type: string
-      enum:
-      - AWS_SSO
-      - SAML
-    DescribeWorkspaceConfigurationResponse:
-      type: object
-      required:
-      - configuration
-      properties:
-        configuration:
-          allOf:
-          - $ref: '#/components/schemas/OverridableConfigurationJson'
-          - description: The configuration string for the workspace that you requested. For more information about the format and configuration options available, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html">Working in your Grafana workspace</a>.
-        grafanaVersion:
-          allOf:
-          - $ref: '#/components/schemas/GrafanaVersion'
-          - description: The supported Grafana version for the workspace.
-    PermissionType:
-      type: string
-      enum:
-      - CUSTOMER_MANAGED
-      - SERVICE_MANAGED
+      maxLength: 256
     WorkspaceDescription:
       type: object
       required:
@@ -1640,13 +1942,69 @@ components:
           - $ref: '#/components/schemas/IamRoleArn'
           - description: The IAM role that grants permissions to the Amazon Web Services resources that the workspace will view data from. This role must already exist.
       description: A structure containing information about an Amazon Managed Grafana workspace in your account.
-    Timestamp:
+    OrganizationalUnitList:
+      type: array
+      items:
+        $ref: '#/components/schemas/OrganizationalUnit'
+    DeleteWorkspaceResponse:
+      type: object
+      required:
+      - workspace
+      properties:
+        workspace:
+          allOf:
+          - $ref: '#/components/schemas/WorkspaceDescription'
+          - description: A structure containing information about the workspace that was deleted.
+    WorkspaceName:
       type: string
-      format: date-time
-    GrafanaVersion:
-      type: string
-      minLength: 1
-      maxLength: 255
+      pattern: ^[a-zA-Z0-9-._~]{1,255}$
+      format: password
+    UpdateErrorCodeInteger:
+      type: integer
+      minimum: 100
+      maximum: 999
+    PermissionEntry:
+      type: object
+      required:
+      - role
+      - user
+      properties:
+        role:
+          allOf:
+          - $ref: '#/components/schemas/Role'
+          - description: Specifies whether the user or group has the <code>Admin</code>, <code>Editor</code>, or <code>Viewer</code> role.
+        user:
+          allOf:
+          - $ref: '#/components/schemas/User'
+          - description: A structure with the ID of the user or group with this role.
+      description: A structure containing the identity of one user or group and the <code>Admin</code>, <code>Editor</code>, or <code>Viewer</code> role that they have.
+    DescribeWorkspaceAuthenticationResponse:
+      type: object
+      required:
+      - authentication
+      properties:
+        authentication:
+          allOf:
+          - $ref: '#/components/schemas/AuthenticationDescription'
+          - description: A structure containing information about the authentication methods used in the workspace.
+    AuthenticationDescription:
+      type: object
+      required:
+      - providers
+      properties:
+        awsSso:
+          allOf:
+          - $ref: '#/components/schemas/AwsSsoAuthentication'
+          - description: 'A structure containing information about how this workspace works with IAM Identity Center. '
+        providers:
+          allOf:
+          - $ref: '#/components/schemas/AuthenticationProviders'
+          - description: Specifies whether this workspace uses IAM Identity Center, SAML, or both methods to authenticate users to use the Grafana console in the Amazon Managed Grafana workspace.
+        saml:
+          allOf:
+          - $ref: '#/components/schemas/SamlAuthentication'
+          - description: 'A structure containing information about how this workspace works with SAML, including what attributes within the assertion are to be mapped to user information in the workspace. '
+      description: A structure containing information about the user authentication methods used by the workspace.
     WorkspaceStatus:
       type: string
       enum:
@@ -1663,31 +2021,95 @@ components:
       - LICENSE_REMOVAL_FAILED
       - VERSION_UPDATING
       - VERSION_UPDATE_FAILED
-    AwsSsoAuthentication:
-      type: object
-      properties:
-        ssoClientId:
-          allOf:
-          - $ref: '#/components/schemas/SSOClientId'
-          - description: The ID of the IAM Identity Center-managed application that is created by Amazon Managed Grafana.
-      description: 'A structure containing information about how this workspace works with IAM Identity Center. '
-    StackSetName:
+    OverridableConfigurationJson:
       type: string
-    Description:
-      type: string
-      minLength: 0
-      maxLength: 2048
-      format: password
-    AuthenticationProviders:
-      type: array
-      items:
-        $ref: '#/components/schemas/AuthenticationProviderTypes'
-    AssertionAttribute:
+      minLength: 2
+      maxLength: 65536
+    IdpMetadataUrl:
       type: string
       minLength: 1
-      maxLength: 256
-    OrganizationalUnit:
+      maxLength: 2048
+    OrganizationRoleName:
       type: string
+      minLength: 1
+      maxLength: 2048
+      format: password
+    UpdatePermissionsResponse:
+      type: object
+      required:
+      - errors
+      properties:
+        errors:
+          allOf:
+          - $ref: '#/components/schemas/UpdateErrorList'
+          - description: An array of structures that contain the errors from the operation, if any.
+    WorkspaceId:
+      type: string
+      pattern: ^g-[0-9a-f]{10}$
+    ListWorkspacesResponse:
+      type: object
+      required:
+      - workspaces
+      properties:
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/PaginationToken'
+          - description: The token to use when requesting the next set of workspaces.
+        workspaces:
+          allOf:
+          - $ref: '#/components/schemas/WorkspaceList'
+          - description: An array of structures that contain some information about the workspaces in the account.
+    IdpMetadata:
+      type: object
+      properties:
+        url:
+          allOf:
+          - $ref: '#/components/schemas/IdpMetadataUrl'
+          - description: The URL of the location containing the IdP metadata.
+        xml:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The full IdP metadata, in XML format.
+      description: A structure containing the identity provider (IdP) metadata used to integrate the identity provider with this workspace. You can specify the metadata either by providing a URL to its location in the <code>url</code> parameter, or by specifying the full metadata in XML format in the <code>xml</code> parameter. Specifying both will cause an error.
+    RoleValues:
+      type: object
+      properties:
+        admin:
+          allOf:
+          - $ref: '#/components/schemas/RoleValueList'
+          - description: A list of groups from the SAML assertion attribute to grant the Grafana <code>Admin</code> role to.
+        editor:
+          allOf:
+          - $ref: '#/components/schemas/RoleValueList'
+          - description: A list of groups from the SAML assertion attribute to grant the Grafana <code>Editor</code> role to.
+      description: This structure defines which groups defined in the SAML assertion attribute are to be mapped to the Grafana <code>Admin</code> and <code>Editor</code> roles in the workspace. SAML authenticated users not part of <code>Admin</code> or <code>Editor</code> role groups have <code>Viewer</code> permission over the workspace.
+    SecurityGroupId:
+      type: string
+      minLength: 0
+      maxLength: 255
+    WorkspaceList:
+      type: array
+      items:
+        $ref: '#/components/schemas/WorkspaceSummary'
+    SamlAuthentication:
+      type: object
+      required:
+      - status
+      properties:
+        configuration:
+          allOf:
+          - $ref: '#/components/schemas/SamlConfiguration'
+          - description: 'A structure containing details about how this workspace works with SAML. '
+        status:
+          allOf:
+          - $ref: '#/components/schemas/SamlConfigurationStatus'
+          - description: Specifies whether the workspace's SAML configuration is complete.
+      description: 'A structure containing information about how this workspace works with SAML. '
+    LicenseType:
+      type: string
+      enum:
+      - ENTERPRISE
+      - ENTERPRISE_FREE_TRIAL
     UpdateInstruction:
       type: object
       required:
@@ -1708,356 +2130,6 @@ components:
           - $ref: '#/components/schemas/UserList'
           - description: A structure that specifies the user or group to add or revoke the role for.
       description: Contains the instructions for one Grafana role permission update in a <a href="https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdatePermissions.html">UpdatePermissions</a> operation.
-    LicenseType:
-      type: string
-      enum:
-      - ENTERPRISE
-      - ENTERPRISE_FREE_TRIAL
-    IdpMetadataUrl:
-      type: string
-      minLength: 1
-      maxLength: 2048
-    UpdatePermissionsResponse:
-      type: object
-      required:
-      - errors
-      properties:
-        errors:
-          allOf:
-          - $ref: '#/components/schemas/UpdateErrorList'
-          - description: An array of structures that contain the errors from the operation, if any.
-    WorkspaceList:
-      type: array
-      items:
-        $ref: '#/components/schemas/WorkspaceSummary'
-    AuthenticationDescription:
-      type: object
-      required:
-      - providers
-      properties:
-        awsSso:
-          allOf:
-          - $ref: '#/components/schemas/AwsSsoAuthentication'
-          - description: 'A structure containing information about how this workspace works with IAM Identity Center. '
-        providers:
-          allOf:
-          - $ref: '#/components/schemas/AuthenticationProviders'
-          - description: Specifies whether this workspace uses IAM Identity Center, SAML, or both methods to authenticate users to use the Grafana console in the Amazon Managed Grafana workspace.
-        saml:
-          allOf:
-          - $ref: '#/components/schemas/SamlAuthentication'
-          - description: 'A structure containing information about how this workspace works with SAML, including what attributes within the assertion are to be mapped to user information in the workspace. '
-      description: A structure containing information about the user authentication methods used by the workspace.
-    PaginationToken:
-      type: string
-    UserList:
-      type: array
-      items:
-        $ref: '#/components/schemas/User'
-    UpdateWorkspaceAuthenticationResponse:
-      type: object
-      required:
-      - authentication
-      properties:
-        authentication:
-          allOf:
-          - $ref: '#/components/schemas/AuthenticationDescription'
-          - description: A structure that describes the user authentication for this workspace after the update is made.
-    String:
-      type: string
-    CreateWorkspaceResponse:
-      type: object
-      required:
-      - workspace
-      properties:
-        workspace:
-          allOf:
-          - $ref: '#/components/schemas/WorkspaceDescription'
-          - description: A structure containing data about the workspace that was created.
-    PermissionEntryList:
-      type: array
-      items:
-        $ref: '#/components/schemas/PermissionEntry'
-    SecurityGroupIds:
-      type: array
-      items:
-        $ref: '#/components/schemas/SecurityGroupId'
-      minItems: 1
-      maxItems: 100
-    OverridableConfigurationJson:
-      type: string
-      minLength: 2
-      maxLength: 65536
-    ThrottlingException: {}
-    PermissionEntry:
-      type: object
-      required:
-      - role
-      - user
-      properties:
-        role:
-          allOf:
-          - $ref: '#/components/schemas/Role'
-          - description: Specifies whether the user or group has the <code>Admin</code>, <code>Editor</code>, or <code>Viewer</code> role.
-        user:
-          allOf:
-          - $ref: '#/components/schemas/User'
-          - description: A structure with the ID of the user or group with this role.
-      description: A structure containing the identity of one user or group and the <code>Admin</code>, <code>Editor</code>, or <code>Viewer</code> role that they have.
-    AllowedOrganizations:
-      type: array
-      items:
-        $ref: '#/components/schemas/AllowedOrganization'
-    SubnetIds:
-      type: array
-      items:
-        $ref: '#/components/schemas/SubnetId'
-      minItems: 1
-      maxItems: 100
-    ApiKeyName:
-      type: string
-      minLength: 1
-      maxLength: 100
-    IamRoleArn:
-      type: string
-      minLength: 1
-      maxLength: 2048
-      format: password
-    WorkspaceName:
-      type: string
-      pattern: ^[a-zA-Z0-9-._~]{1,255}$
-      format: password
-    SubnetId:
-      type: string
-      minLength: 0
-      maxLength: 255
-    AssertionAttributes:
-      type: object
-      properties:
-        email:
-          allOf:
-          - $ref: '#/components/schemas/AssertionAttribute'
-          - description: The name of the attribute within the SAML assertion to use as the email names for SAML users.
-        groups:
-          allOf:
-          - $ref: '#/components/schemas/AssertionAttribute'
-          - description: The name of the attribute within the SAML assertion to use as the user full "friendly" names for user groups.
-        login:
-          allOf:
-          - $ref: '#/components/schemas/AssertionAttribute'
-          - description: The name of the attribute within the SAML assertion to use as the login names for SAML users.
-        name:
-          allOf:
-          - $ref: '#/components/schemas/AssertionAttribute'
-          - description: The name of the attribute within the SAML assertion to use as the user full "friendly" names for SAML users.
-        org:
-          allOf:
-          - $ref: '#/components/schemas/AssertionAttribute'
-          - description: The name of the attribute within the SAML assertion to use as the user full "friendly" names for the users' organizations.
-        role:
-          allOf:
-          - $ref: '#/components/schemas/AssertionAttribute'
-          - description: The name of the attribute within the SAML assertion to use as the user roles.
-      description: A structure that defines which attributes in the IdP assertion are to be used to define information about the users authenticated by the IdP to use the workspace.
-    UpdateErrorList:
-      type: array
-      items:
-        $ref: '#/components/schemas/UpdateError'
-    UpdateErrorCodeInteger:
-      type: integer
-      minimum: 100
-      maximum: 999
-    UpdateWorkspaceConfigurationResponse:
-      type: object
-      properties: {}
-    WorkspaceId:
-      type: string
-      pattern: ^g-[0-9a-f]{10}$
-    Boolean:
-      type: boolean
-    ServiceQuotaExceededException: {}
-    Role:
-      type: string
-      enum:
-      - ADMIN
-      - EDITOR
-      - VIEWER
-    NotificationDestinationType:
-      type: string
-      enum:
-      - SNS
-    ListPermissionsResponse:
-      type: object
-      required:
-      - permissions
-      properties:
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/PaginationToken'
-          - description: The token to use in a subsequent <code>ListPermissions</code> operation to return the next set of results.
-        permissions:
-          allOf:
-          - $ref: '#/components/schemas/PermissionEntryList'
-          - description: The permissions returned by the operation.
-    ListWorkspacesResponse:
-      type: object
-      required:
-      - workspaces
-      properties:
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/PaginationToken'
-          - description: The token to use when requesting the next set of workspaces.
-        workspaces:
-          allOf:
-          - $ref: '#/components/schemas/WorkspaceList'
-          - description: An array of structures that contain some information about the workspaces in the account.
-    DeleteWorkspaceApiKeyResponse:
-      type: object
-      required:
-      - keyName
-      - workspaceId
-      properties:
-        keyName:
-          allOf:
-          - $ref: '#/components/schemas/ApiKeyName'
-          - description: The name of the key that was deleted.
-        workspaceId:
-          allOf:
-          - $ref: '#/components/schemas/WorkspaceId'
-          - description: The ID of the workspace where the key was deleted.
-    TagValue:
-      type: string
-      minLength: 0
-      maxLength: 256
-    OrganizationalUnitList:
-      type: array
-      items:
-        $ref: '#/components/schemas/OrganizationalUnit'
-    AllowedOrganization:
-      type: string
-      minLength: 1
-      maxLength: 256
-    SamlAuthentication:
-      type: object
-      required:
-      - status
-      properties:
-        configuration:
-          allOf:
-          - $ref: '#/components/schemas/SamlConfiguration'
-          - description: 'A structure containing details about how this workspace works with SAML. '
-        status:
-          allOf:
-          - $ref: '#/components/schemas/SamlConfigurationStatus'
-          - description: Specifies whether the workspace's SAML configuration is complete.
-      description: 'A structure containing information about how this workspace works with SAML. '
-    ConflictException: {}
-    PrefixListIds:
-      type: array
-      items:
-        $ref: '#/components/schemas/PrefixListId'
-    WorkspaceSummary:
-      type: object
-      required:
-      - authentication
-      - created
-      - endpoint
-      - grafanaVersion
-      - id
-      - modified
-      - status
-      properties:
-        authentication:
-          allOf:
-          - $ref: '#/components/schemas/AuthenticationSummary'
-          - description: A structure containing information about the authentication methods used in the workspace.
-        created:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: The date that the workspace was created.
-        description:
-          allOf:
-          - $ref: '#/components/schemas/Description'
-          - description: The customer-entered description of the workspace.
-        endpoint:
-          allOf:
-          - $ref: '#/components/schemas/Endpoint'
-          - description: The URL endpoint to use to access the Grafana console in the workspace.
-        grafanaVersion:
-          allOf:
-          - $ref: '#/components/schemas/GrafanaVersion'
-          - description: The Grafana version that the workspace is running.
-        id:
-          allOf:
-          - $ref: '#/components/schemas/WorkspaceId'
-          - description: The unique ID of the workspace.
-        modified:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: The most recent date that the workspace was modified.
-        name:
-          allOf:
-          - $ref: '#/components/schemas/WorkspaceName'
-          - description: The name of the workspace.
-        notificationDestinations:
-          allOf:
-          - $ref: '#/components/schemas/NotificationDestinationsList'
-          - description: The Amazon Web Services notification channels that Amazon Managed Grafana can automatically create IAM roles and permissions for, which allows Amazon Managed Grafana to use these channels.
-        status:
-          allOf:
-          - $ref: '#/components/schemas/WorkspaceStatus'
-          - description: The current status of the workspace.
-        tags:
-          allOf:
-          - $ref: '#/components/schemas/TagMap'
-          - description: The list of tags associated with the workspace.
-      description: A structure that contains some information about one workspace in the account.
-    ValidationException: {}
-    DataSourceTypesList:
-      type: array
-      items:
-        $ref: '#/components/schemas/DataSourceType'
-    ApiKeyToken:
-      type: string
-      format: password
-    VpceId:
-      type: string
-      minLength: 1
-      maxLength: 100
-    SamlConfiguration:
-      type: object
-      required:
-      - idpMetadata
-      properties:
-        allowedOrganizations:
-          allOf:
-          - $ref: '#/components/schemas/AllowedOrganizations'
-          - description: Lists which organizations defined in the SAML assertion are allowed to use the Amazon Managed Grafana workspace. If this is empty, all organizations in the assertion attribute have access.
-        assertionAttributes:
-          allOf:
-          - $ref: '#/components/schemas/AssertionAttributes'
-          - description: A structure that defines which attributes in the SAML assertion are to be used to define information about the users authenticated by that IdP to use the workspace.
-        idpMetadata:
-          allOf:
-          - $ref: '#/components/schemas/IdpMetadata'
-          - description: A structure containing the identity provider (IdP) metadata used to integrate the identity provider with this workspace.
-        loginValidityDuration:
-          allOf:
-          - $ref: '#/components/schemas/LoginValidityDuration'
-          - description: How long a sign-on session by a SAML user is valid, before the user has to sign on again.
-        roleValues:
-          allOf:
-          - $ref: '#/components/schemas/RoleValues'
-          - description: A structure containing arrays that map group names in the SAML assertion to the Grafana <code>Admin</code> and <code>Editor</code> roles in the workspace.
-      description: 'A structure containing information about how this workspace works with SAML. '
-    SSOClientId:
-      type: string
-    OrganizationRoleName:
-      type: string
-      minLength: 1
-      maxLength: 2048
-      format: password
     DisassociateLicenseResponse:
       type: object
       required:
@@ -2067,89 +2139,17 @@ components:
           allOf:
           - $ref: '#/components/schemas/WorkspaceDescription'
           - description: A structure containing information about the workspace.
-    AuthenticationSummary:
-      type: object
-      required:
-      - providers
-      properties:
-        providers:
-          allOf:
-          - $ref: '#/components/schemas/AuthenticationProviders'
-          - description: Specifies whether the workspace uses SAML, IAM Identity Center, or both methods for user authentication.
-        samlConfigurationStatus:
-          allOf:
-          - $ref: '#/components/schemas/SamlConfigurationStatus'
-          - description: Specifies whether the workplace's user authentication method is fully configured.
-      description: A structure that describes whether the workspace uses SAML, IAM Identity Center, or both methods for user authentication, and whether that authentication is fully configured.
-    DeleteWorkspaceResponse:
-      type: object
-      required:
-      - workspace
-      properties:
-        workspace:
-          allOf:
-          - $ref: '#/components/schemas/WorkspaceDescription'
-          - description: A structure containing information about the workspace that was deleted.
-    User:
-      type: object
-      required:
-      - id
-      - type
-      properties:
-        id:
-          allOf:
-          - $ref: '#/components/schemas/SsoId'
-          - description: '<p>The ID of the user or group.</p> <p>Pattern: <code>^([0-9a-fA-F]{10}-|)[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}$</code> </p>'
-        type:
-          allOf:
-          - $ref: '#/components/schemas/UserType'
-          - description: Specifies whether this is a single user or a group.
-      description: A structure that specifies one user or group in the workspace.
-    TagMap:
-      type: object
-      minProperties: 0
-      maxProperties: 50
-      additionalProperties:
-        $ref: '#/components/schemas/TagValue'
-    SsoId:
-      type: string
-      minLength: 1
-      maxLength: 47
-    Endpoint:
-      type: string
-      minLength: 1
-      maxLength: 2048
-    UserType:
+    ResourceNotFoundException: {}
+    UpdateAction:
       type: string
       enum:
-      - SSO_USER
-      - SSO_GROUP
-    UpdateWorkspaceResponse:
-      type: object
-      required:
-      - workspace
-      properties:
-        workspace:
-          allOf:
-          - $ref: '#/components/schemas/WorkspaceDescription'
-          - description: A structure containing data about the workspace that was created.
-    AccessDeniedException: {}
-    VpceIds:
-      type: array
-      items:
-        $ref: '#/components/schemas/VpceId'
-    DescribeWorkspaceAuthenticationResponse:
-      type: object
-      required:
-      - authentication
-      properties:
-        authentication:
-          allOf:
-          - $ref: '#/components/schemas/AuthenticationDescription'
-          - description: A structure containing information about the authentication methods used in the workspace.
-    InternalServerException: {}
-    LoginValidityDuration:
-      type: integer
+      - ADD
+      - REVOKE
+    AuthenticationProviderTypes:
+      type: string
+      enum:
+      - AWS_SSO
+      - SAML
   parameters:
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
@@ -2157,26 +2157,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Signature:
       name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
       in: header
       schema:
         type: string
@@ -2189,6 +2171,24 @@ components:
       required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string

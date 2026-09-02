@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 1.0.0
   x-release: v4
   title: Amazon Managed Grafana Tags API
   description: <p>Amazon Managed Grafana is a fully managed and secure data visualization service that you can use to instantly query, correlate, and visualize operational metrics, logs, and traces from multiple sources. Amazon Managed Grafana makes it easy to deploy, operate, and scale Grafana, a widely deployed data visualization tool that is popular for its extensible data support.</p> <p>With Amazon Managed Grafana, you create logically isolated Grafana servers called <i>workspaces</i>. In a workspace, you can create Grafana dashboards and visualizations to analyze your metrics, logs, and traces without having to build, package, or deploy any hardware to run Grafana servers. </p>
@@ -308,27 +308,18 @@ paths:
       - Tags
 components:
   schemas:
-    ThrottlingException: {}
-    UntagResourceResponse:
-      type: object
-      properties: {}
+    ResourceNotFoundException: {}
+    ValidationException: {}
     TagMap:
       type: object
       minProperties: 0
       maxProperties: 50
       additionalProperties:
         $ref: '#/components/schemas/TagValue'
+    InternalServerException: {}
     TagResourceResponse:
       type: object
       properties: {}
-    AccessDeniedException: {}
-    TagValue:
-      type: string
-      minLength: 0
-      maxLength: 256
-    ValidationException: {}
-    InternalServerException: {}
-    ResourceNotFoundException: {}
     ListTagsForResourceResponse:
       type: object
       properties:
@@ -336,10 +327,19 @@ components:
           allOf:
           - $ref: '#/components/schemas/TagMap'
           - description: The list of tags that are associated with the resource.
+    UntagResourceResponse:
+      type: object
+      properties: {}
+    TagValue:
+      type: string
+      minLength: 0
+      maxLength: 256
     TagKey:
       type: string
       minLength: 1
       maxLength: 128
+    AccessDeniedException: {}
+    ThrottlingException: {}
   parameters:
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
@@ -347,20 +347,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
       required: false
     X-Amz-Signature:
       name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
@@ -377,8 +371,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
