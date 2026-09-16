@@ -1,9 +1,10 @@
 aid: amazon-managed-grafana
 name: Amazon Managed Grafana
-description: Amazon Managed Grafana is a fully managed service for open source Grafana developed in collaboration with Grafana
-  Labs. It enables interactive data visualizations and dashboards for operational metrics, logs, and traces from multiple
-  sources including AWS services, third-party ISVs, and on-premises data. The service handles provisioning, setup, scaling,
-  and maintenance of Grafana, allowing teams to focus on creating dashboards and analyzing data.
+description: Amazon Managed Grafana is a fully managed service for open source Grafana developed in collaboration
+  with Grafana Labs. It enables interactive data visualizations and dashboards for operational metrics,
+  logs, and traces from multiple sources including AWS services, third-party ISVs, and on-premises data.
+  The service handles provisioning, setup, scaling, and maintenance of Grafana, allowing teams to focus
+  on creating dashboards and analyzing data.
 type: Index
 deliveryModel:
   model: saas
@@ -40,7 +41,7 @@ tags:
 - Visualization
 url: https://raw.githubusercontent.com/api-evangelist/amazon-managed-grafana/refs/heads/main/apis.yml
 created: '2026-03-16'
-modified: '2026-05-19'
+modified: '2026-09-16'
 specificationVersion: '0.23'
 apis:
 - aid: amazon-managed-grafana:amazon-managed-grafana-tags-api
@@ -116,6 +117,8 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-managed-grafana-context.jsonld
 common:
+- type: Website
+  url: https://amazon.com
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/amazon-managed-grafana/overview
 - type: AgenticAccess
@@ -175,13 +178,16 @@ common:
 - type: UseCases
   data:
   - name: Infrastructure Monitoring
-    description: Visualize AWS infrastructure metrics from CloudWatch, EC2, RDS, and other services in unified dashboards.
+    description: Visualize AWS infrastructure metrics from CloudWatch, EC2, RDS, and other services in
+      unified dashboards.
   - name: Container Observability
-    description: Monitor Kubernetes and ECS workloads using Prometheus and CloudWatch Container Insights data sources.
+    description: Monitor Kubernetes and ECS workloads using Prometheus and CloudWatch Container Insights
+      data sources.
   - name: Application Performance Monitoring
     description: Track application latency, error rates, and throughput with custom dashboards and alerting.
   - name: Business Metrics Dashboards
-    description: Build executive dashboards combining operational and business metrics from multiple data sources.
+    description: Build executive dashboards combining operational and business metrics from multiple data
+      sources.
   - name: Security and Compliance Monitoring
     description: Visualize security findings and compliance metrics from AWS Security Hub and GuardDuty.
 - type: Integrations
