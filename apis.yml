@@ -98,6 +98,8 @@ apis:
   humanURL: https://aws.amazon.com/grafana/
   baseURL: https://grafana.amazonaws.com
   tags:
+  - Workspace
+  tags_raw:
   - Workspaces
   properties:
   - type: OpenAPI
