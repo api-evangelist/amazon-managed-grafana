@@ -1,9 +1,7 @@
 {
   "provider": "amazon-managed-grafana",
   "sources": [
-    "amazon-managed-grafana-tags-api-openapi.yml",
-    "amazon-managed-grafana-versions-api-openapi.yml",
-    "amazon-managed-grafana-workspaces-api-openapi.yml"
+    "_original/amazon-managed-grafana-openapi-original.yaml"
   ],
   "outputs": [
     "amazon-managed-grafana-tags-api-openapi.yml",
@@ -14,7 +12,35 @@
   "errors": [],
   "warnings": [],
   "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "amazon-managed-grafana-openapi-original.yaml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "amazon-managed-grafana-openapi-original.yaml: tagged paths POST /workspaces/{workspaceId}/licenses/{licenseType} -> Workspaces",
+    "amazon-managed-grafana-openapi-original.yaml: tagged paths DELETE /workspaces/{workspaceId}/licenses/{licenseType} -> Workspaces",
+    "amazon-managed-grafana-openapi-original.yaml: tagged paths POST /workspaces -> Workspaces",
+    "amazon-managed-grafana-openapi-original.yaml: tagged paths GET /workspaces -> Workspaces",
+    "amazon-managed-grafana-openapi-original.yaml: tagged paths POST /workspaces/{workspaceId}/apikeys -> Workspaces",
+    "amazon-managed-grafana-openapi-original.yaml: tagged paths DELETE /workspaces/{workspaceId} -> Workspaces",
+    "amazon-managed-grafana-openapi-original.yaml: tagged paths GET /workspaces/{workspaceId} -> Workspaces",
+    "amazon-managed-grafana-openapi-original.yaml: tagged paths PUT /workspaces/{workspaceId} -> Workspaces",
+    "amazon-managed-grafana-openapi-original.yaml: tagged paths DELETE /workspaces/{workspaceId}/apikeys/{keyName} -> Workspaces",
+    "amazon-managed-grafana-openapi-original.yaml: tagged paths GET /workspaces/{workspaceId}/authentication -> Workspaces",
+    "amazon-managed-grafana-openapi-original.yaml: tagged paths POST /workspaces/{workspaceId}/authentication -> Workspaces",
+    "amazon-managed-grafana-openapi-original.yaml: tagged paths GET /workspaces/{workspaceId}/configuration -> Workspaces",
+    "amazon-managed-grafana-openapi-original.yaml: tagged paths PUT /workspaces/{workspaceId}/configuration -> Workspaces",
+    "amazon-managed-grafana-openapi-original.yaml: tagged paths GET /workspaces/{workspaceId}/permissions -> Workspaces",
+    "amazon-managed-grafana-openapi-original.yaml: tagged paths PATCH /workspaces/{workspaceId}/permissions -> Workspaces",
+    "amazon-managed-grafana-openapi-original.yaml: tagged paths GET /tags/{resourceArn} -> Tags",
+    "amazon-managed-grafana-openapi-original.yaml: tagged paths POST /tags/{resourceArn} -> Tags",
+    "amazon-managed-grafana-openapi-original.yaml: tagged paths GET /versions -> Versions",
+    "amazon-managed-grafana-openapi-original.yaml: tagged paths DELETE /tags/{resourceArn}#tagKeys -> Tags",
+    "amazon-managed-grafana-openapi-original.yaml: declared missing tag: Tags",
+    "amazon-managed-grafana-openapi-original.yaml: declared missing tag: Versions",
+    "amazon-managed-grafana-openapi-original.yaml: declared missing tag: Workspaces",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "amazon-managed-grafana-tags-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-managed-grafana-versions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-managed-grafana-workspaces-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

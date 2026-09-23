@@ -1,9 +1,9 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: '2020-08-18'
   x-release: v4
-  title: Amazon Managed Grafana Tags Versions API
-  description: <p>Amazon Managed Grafana is a fully managed and secure data visualization service that you can use to instantly query, correlate, and visualize operational metrics, logs, and traces from multiple sources. Amazon Managed Grafana makes it easy to deploy, operate, and scale Grafana, a widely deployed data visualization tool that is popular for its extensible data support.</p> <p>With Amazon Managed Grafana, you create logically isolated Grafana servers called <i>workspaces</i>. In a workspace, you can create Grafana dashboards and visualizations to analyze your metrics, logs, and traces without having to build, package, or deploy any hardware to run Grafana servers. </p>
+  title: Amazon Managed Grafana Versions API
+  description: Amazon Managed Grafana is a fully managed and secure data visualization service that you can use to instantly query, correlate, and visualize operational metrics, logs, and traces from multiple sources.
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
     backgroundColor: '#FFFFFF'
@@ -24,6 +24,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/grafana-2020-08-18.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -125,7 +126,7 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     get:
       operationId: ListVersions
-      description: Lists available versions of Grafana. These are available when calling <code>CreateWorkspace</code>. Optionally, include a workspace to list the versions to which it can be upgraded.
+      description: Lists available versions of Grafana. These are available when calling CreateWorkspace. Optionally, include a workspace to list the versions to which it can be upgraded.
       responses:
         '200':
           description: Success
@@ -190,14 +191,12 @@ paths:
       - Versions
 components:
   schemas:
-    ResourceNotFoundException: {}
+    GrafanaVersionList:
+      type: array
+      items:
+        $ref: '#/components/schemas/GrafanaVersion'
     PaginationToken:
       type: string
-    ValidationException: {}
-    GrafanaVersion:
-      type: string
-      minLength: 1
-      maxLength: 255
     InternalServerException: {}
     ListVersionsResponse:
       type: object
@@ -210,27 +209,17 @@ components:
           allOf:
           - $ref: '#/components/schemas/PaginationToken'
           - description: The token to use in a subsequent <code>ListVersions</code> operation to return the next set of results.
-    ThrottlingException: {}
-    GrafanaVersionList:
-      type: array
-      items:
-        $ref: '#/components/schemas/GrafanaVersion'
+    GrafanaVersion:
+      type: string
+      minLength: 1
+      maxLength: 255
+    ResourceNotFoundException: {}
+    ValidationException: {}
     AccessDeniedException: {}
+    ThrottlingException: {}
   parameters:
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
       in: header
       schema:
         type: string
@@ -241,8 +230,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
@@ -253,8 +242,20 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
