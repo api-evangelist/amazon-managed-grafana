@@ -191,12 +191,20 @@ paths:
       - Versions
 components:
   schemas:
+    PaginationToken:
+      type: string
+    AccessDeniedException: {}
+    ThrottlingException: {}
     GrafanaVersionList:
       type: array
       items:
         $ref: '#/components/schemas/GrafanaVersion'
-    PaginationToken:
+    GrafanaVersion:
       type: string
+      minLength: 1
+      maxLength: 255
+    ValidationException: {}
+    ResourceNotFoundException: {}
     InternalServerException: {}
     ListVersionsResponse:
       type: object
@@ -209,15 +217,25 @@ components:
           allOf:
           - $ref: '#/components/schemas/PaginationToken'
           - description: The token to use in a subsequent <code>ListVersions</code> operation to return the next set of results.
-    GrafanaVersion:
-      type: string
-      minLength: 1
-      maxLength: 255
-    ResourceNotFoundException: {}
-    ValidationException: {}
-    AccessDeniedException: {}
-    ThrottlingException: {}
   parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
       in: header
@@ -230,32 +248,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string

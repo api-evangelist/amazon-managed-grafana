@@ -120,7 +120,7 @@ apis:
     url: json-ld/amazon-managed-grafana-context.jsonld
 common:
 - type: Website
-  url: https://amazon.com
+  url: https://aws.amazon.com/grafana/
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/amazon-managed-grafana/overview
 - type: AgenticAccess
@@ -209,5 +209,5 @@ common:
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
-x-parent: aws
+x-parent: amazon-web-services
 x-relationship: product
