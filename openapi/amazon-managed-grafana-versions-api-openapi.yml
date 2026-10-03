@@ -191,21 +191,13 @@ paths:
       - Versions
 components:
   schemas:
-    PaginationToken:
-      type: string
-    AccessDeniedException: {}
-    ThrottlingException: {}
     GrafanaVersionList:
       type: array
       items:
         $ref: '#/components/schemas/GrafanaVersion'
-    GrafanaVersion:
-      type: string
-      minLength: 1
-      maxLength: 255
-    ValidationException: {}
+    AccessDeniedException: {}
     ResourceNotFoundException: {}
-    InternalServerException: {}
+    ThrottlingException: {}
     ListVersionsResponse:
       type: object
       properties:
@@ -217,27 +209,17 @@ components:
           allOf:
           - $ref: '#/components/schemas/PaginationToken'
           - description: The token to use in a subsequent <code>ListVersions</code> operation to return the next set of results.
+    ValidationException: {}
+    InternalServerException: {}
+    PaginationToken:
+      type: string
+    GrafanaVersion:
+      type: string
+      minLength: 1
+      maxLength: 255
   parameters:
     X-Amz-Credential:
       name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
@@ -254,8 +236,26 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Signature:
       name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
