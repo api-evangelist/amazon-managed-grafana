@@ -39,6 +39,7 @@ tags:
 - Monitoring
 - Observability
 - Visualization
+- Data Visualization
 url: https://raw.githubusercontent.com/api-evangelist/amazon-managed-grafana/refs/heads/main/apis.yml
 created: '2026-03-16'
 modified: '2026-09-16'
@@ -119,6 +120,9 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-managed-grafana-context.jsonld
 common:
+- type: CapabilityMap
+  url: capabilities/amazon-managed-grafana-capability-edges.yml
+  name: Amazon Managed Grafana Business Capability Map
 - type: Website
   url: https://aws.amazon.com/grafana/
 - type: PostmanWorkspace
