@@ -190,42 +190,33 @@ paths:
       tags:
       - Versions
 components:
-  schemas:
-    GrafanaVersionList:
-      type: array
-      items:
-        $ref: '#/components/schemas/GrafanaVersion'
-    AccessDeniedException: {}
-    ResourceNotFoundException: {}
-    ThrottlingException: {}
-    ListVersionsResponse:
-      type: object
-      properties:
-        grafanaVersions:
-          allOf:
-          - $ref: '#/components/schemas/GrafanaVersionList'
-          - description: The Grafana versions available to create. If a workspace ID is included in the request, the Grafana versions to which this workspace can be upgraded.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/PaginationToken'
-          - description: The token to use in a subsequent <code>ListVersions</code> operation to return the next set of results.
-    ValidationException: {}
-    InternalServerException: {}
-    PaginationToken:
-      type: string
-    GrafanaVersion:
-      type: string
-      minLength: 1
-      maxLength: 255
   parameters:
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string
       required: false
     X-Amz-Date:
       name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
@@ -242,24 +233,33 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
+  schemas:
+    InternalServerException: {}
+    AccessDeniedException: {}
+    ResourceNotFoundException: {}
+    GrafanaVersionList:
+      type: array
+      items:
+        $ref: '#/components/schemas/GrafanaVersion'
+    ListVersionsResponse:
+      type: object
+      properties:
+        grafanaVersions:
+          allOf:
+          - $ref: '#/components/schemas/GrafanaVersionList'
+          - description: The Grafana versions available to create. If a workspace ID is included in the request, the Grafana versions to which this workspace can be upgraded.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/PaginationToken'
+          - description: The token to use in a subsequent <code>ListVersions</code> operation to return the next set of results.
+    PaginationToken:
+      type: string
+    ValidationException: {}
+    ThrottlingException: {}
+    GrafanaVersion:
+      type: string
+      minLength: 1
+      maxLength: 255
   securitySchemes:
     hmac:
       type: apiKey
