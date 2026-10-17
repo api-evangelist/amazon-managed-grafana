@@ -203,6 +203,18 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
       in: header
@@ -215,18 +227,6 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Content-Sha256:
       name: X-Amz-Content-Sha256
       in: header
@@ -234,8 +234,8 @@ components:
         type: string
       required: false
   schemas:
-    InternalServerException: {}
     AccessDeniedException: {}
+    InternalServerException: {}
     ResourceNotFoundException: {}
     GrafanaVersionList:
       type: array
@@ -252,14 +252,14 @@ components:
           allOf:
           - $ref: '#/components/schemas/PaginationToken'
           - description: The token to use in a subsequent <code>ListVersions</code> operation to return the next set of results.
-    PaginationToken:
-      type: string
-    ValidationException: {}
-    ThrottlingException: {}
     GrafanaVersion:
       type: string
       minLength: 1
       maxLength: 255
+    PaginationToken:
+      type: string
+    ThrottlingException: {}
+    ValidationException: {}
   securitySchemes:
     hmac:
       type: apiKey
