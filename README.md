@@ -1,4 +1,4 @@
-# Amazon Managed Grafana (amazon-managed-grafana)
+# Amazon Managed Grafana
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,137 +66,244 @@
 
 Amazon Managed Grafana is a fully managed service for open source Grafana developed in collaboration with Grafana Labs. It enables interactive data visualizations and dashboards for operational metrics, logs, and traces from multiple sources including AWS services, third-party ISVs, and on-premises data. The service handles provisioning, setup, scaling, and maintenance of Grafana, allowing teams to focus on creating dashboards and analyzing data.
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/amazon-managed-grafana/refs/heads/main/apis.yml)
+**Areas:** AWS · Dashboards · Monitoring · Observability · Visualization · Data Visualization
 
-**Run:** [Capabilities Using Naftiko](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=company-api-evangelist&utm_content=repo)
+## Amazon Managed Grafana on APIs.io
 
-## Tags:
+Everything profiled for Amazon Managed Grafana is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/amazon-managed-grafana/](https://apis.io/providers/amazon-managed-grafana/)** — or go straight to one of the APIs or properties below.
 
- - AWS, Dashboards, Monitoring, Observability, Visualization
+### APIs (5)
 
-## Timestamps
+- [Amazon Managed Grafana Tags API](https://apis.io/apis/amazon-managed-grafana/amazon-managed-grafana-tags-api/) — The Tags API from Amazon Managed Grafana — 2 operation(s) for tags.
+- [Amazon Managed Grafana Versions API](https://apis.io/apis/amazon-managed-grafana/amazon-managed-grafana-versions-api/) — The Versions API from Amazon Managed Grafana — 1 operation(s) for versions.
+- [Amazon Managed Grafana Workspaces API](https://apis.io/apis/amazon-managed-grafana/amazon-managed-grafana-workspaces-api/) — The Workspaces API from Amazon Managed Grafana — 8 operation(s) for workspaces.
+- [Amazon Managed Grafana Managed Grafana Serviceaccounts API](https://apis.io/apis/amazon-managed-grafana/amazon-managed-grafana-serviceaccounts-api/) — The Managed Grafana Serviceaccounts API from Amazon Managed Grafana — 2 operation(s) for managed grafana serviceaccounts.
+- [Amazon Managed Grafana Managed Grafana Tokens API](https://apis.io/apis/amazon-managed-grafana/amazon-managed-grafana-tokens-api/) — The Managed Grafana Tokens API from Amazon Managed Grafana — 2 operation(s) for managed grafana tokens.
 
-- **Created:** 2026-03-16
-- **Modified:** 2026-04-19
+### Published properties
 
-## APIs
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-### Amazon Managed Grafana API
-The Amazon Managed Grafana API provides programmatic access to create and manage Grafana workspaces, users, SAML configurations, and workspace API keys for managed Grafana deployments. Covers workspace lifecycle management, authentication configuration, license association, and access control across all managed Grafana resources.
+#### Agentic access (1)
 
-**Human URL:** [https://aws.amazon.com/grafana/](https://aws.amazon.com/grafana/)
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags:
+- [Amazon Managed Grafana Agentic Access](https://apis.io/agentic-access/amazon-managed-grafana/amazon-managed-grafana-agentic-access/)
 
- - Dashboards, Monitoring, Observability, Visualization
+#### JSON Schema (125)
 
-#### Properties
+The data models the API reads and writes.
 
-- [Documentation](https://docs.aws.amazon.com/grafana/latest/APIReference/Welcome.html)
-- [OpenAPI](openapi/amazon-managed-grafana-openapi-original.yaml)
-- [GettingStarted](https://aws.amazon.com/grafana/getting-started/)
-- [Pricing](https://aws.amazon.com/grafana/pricing/)
-- [FAQ](https://aws.amazon.com/grafana/faqs/)
+- [AccessDeniedException](https://apis.io/schemas/amazon-managed-grafana/amazon-managed-grafana-access-denied-exception/)
+- [AccountAccessType](https://apis.io/schemas/amazon-managed-grafana/amazon-managed-grafana-account-access-type/)
+- [AllowedOrganization](https://apis.io/schemas/amazon-managed-grafana/amazon-managed-grafana-allowed-organization/)
+- [AllowedOrganizations](https://apis.io/schemas/amazon-managed-grafana/amazon-managed-grafana-allowed-organizations/)
+- [ApiKeyName](https://apis.io/schemas/amazon-managed-grafana/amazon-managed-grafana-api-key-name/)
+- [ApiKeyToken](https://apis.io/schemas/amazon-managed-grafana/amazon-managed-grafana-api-key-token/)
+- [AssertionAttribute](https://apis.io/schemas/amazon-managed-grafana/amazon-managed-grafana-assertion-attribute/)
+- [AssertionAttributes](https://apis.io/schemas/amazon-managed-grafana/amazon-managed-grafana-assertion-attributes/)
+- [AssociateLicenseRequest](https://apis.io/schemas/amazon-managed-grafana/amazon-managed-grafana-associate-license-request/)
+- [AssociateLicenseResponse](https://apis.io/schemas/amazon-managed-grafana/amazon-managed-grafana-associate-license-response/)
+- [AuthenticationDescription](https://apis.io/schemas/amazon-managed-grafana/amazon-managed-grafana-authentication-description/)
+- [AuthenticationProviderTypes](https://apis.io/schemas/amazon-managed-grafana/amazon-managed-grafana-authentication-provider-types/)
+- [AuthenticationProviders](https://apis.io/schemas/amazon-managed-grafana/amazon-managed-grafana-authentication-providers/)
+- [AuthenticationSummary](https://apis.io/schemas/amazon-managed-grafana/amazon-managed-grafana-authentication-summary/)
+- [AwsSsoAuthentication](https://apis.io/schemas/amazon-managed-grafana/amazon-managed-grafana-aws-sso-authentication/)
+- [Boolean](https://apis.io/schemas/amazon-managed-grafana/amazon-managed-grafana-boolean/)
+- [ClientToken](https://apis.io/schemas/amazon-managed-grafana/amazon-managed-grafana-client-token/)
+- [ConflictException](https://apis.io/schemas/amazon-managed-grafana/amazon-managed-grafana-conflict-exception/)
+- [CreateWorkspaceApiKeyRequest](https://apis.io/schemas/amazon-managed-grafana/amazon-managed-grafana-create-workspace-api-key-request/)
+- [CreateWorkspaceApiKeyRequestSecondsToLiveInteger](https://apis.io/schemas/amazon-managed-grafana/amazon-managed-grafana-create-workspace-api-key-request-seconds-to-live-integer/)
+- [CreateWorkspaceApiKeyResponse](https://apis.io/schemas/amazon-managed-grafana/amazon-managed-grafana-create-workspace-api-key-response/)
+- [CreateWorkspaceRequest](https://apis.io/schemas/amazon-managed-grafana/amazon-managed-grafana-create-workspace-request/)
+- [CreateWorkspaceResponse](https://apis.io/schemas/amazon-managed-grafana/amazon-managed-grafana-create-workspace-response/)
+- [DataSourceType](https://apis.io/schemas/amazon-managed-grafana/amazon-managed-grafana-data-source-type/)
+- [DataSourceTypesList](https://apis.io/schemas/amazon-managed-grafana/amazon-managed-grafana-data-source-types-list/)
+- …and 100 more published on APIs.io
 
-## Common Properties
+#### JSON Structure (125)
 
-- [Portal](https://aws.amazon.com/grafana/)
+Data models expressed in JSON Structure.
+
+- [Amazon Managed Grafana Access Denied Exception Structure](https://apis.io/json-structure/amazon-managed-grafana/amazon-managed-grafana-access-denied-exception-structure/)
+- [Amazon Managed Grafana Account Access Type Structure](https://apis.io/json-structure/amazon-managed-grafana/amazon-managed-grafana-account-access-type-structure/)
+- [Amazon Managed Grafana Allowed Organization Structure](https://apis.io/json-structure/amazon-managed-grafana/amazon-managed-grafana-allowed-organization-structure/)
+- [Amazon Managed Grafana Allowed Organizations Structure](https://apis.io/json-structure/amazon-managed-grafana/amazon-managed-grafana-allowed-organizations-structure/)
+- [Amazon Managed Grafana Api Key Name Structure](https://apis.io/json-structure/amazon-managed-grafana/amazon-managed-grafana-api-key-name-structure/)
+- [Amazon Managed Grafana Api Key Token Structure](https://apis.io/json-structure/amazon-managed-grafana/amazon-managed-grafana-api-key-token-structure/)
+- [Amazon Managed Grafana Assertion Attribute Structure](https://apis.io/json-structure/amazon-managed-grafana/amazon-managed-grafana-assertion-attribute-structure/)
+- [Amazon Managed Grafana Assertion Attributes Structure](https://apis.io/json-structure/amazon-managed-grafana/amazon-managed-grafana-assertion-attributes-structure/)
+- [Amazon Managed Grafana Associate License Request Structure](https://apis.io/json-structure/amazon-managed-grafana/amazon-managed-grafana-associate-license-request-structure/)
+- [Amazon Managed Grafana Associate License Response Structure](https://apis.io/json-structure/amazon-managed-grafana/amazon-managed-grafana-associate-license-response-structure/)
+- [Amazon Managed Grafana Authentication Description Structure](https://apis.io/json-structure/amazon-managed-grafana/amazon-managed-grafana-authentication-description-structure/)
+- [Amazon Managed Grafana Authentication Provider Types Structure](https://apis.io/json-structure/amazon-managed-grafana/amazon-managed-grafana-authentication-provider-types-structure/)
+- [Amazon Managed Grafana Authentication Providers Structure](https://apis.io/json-structure/amazon-managed-grafana/amazon-managed-grafana-authentication-providers-structure/)
+- [Amazon Managed Grafana Authentication Summary Structure](https://apis.io/json-structure/amazon-managed-grafana/amazon-managed-grafana-authentication-summary-structure/)
+- [Amazon Managed Grafana Aws Sso Authentication Structure](https://apis.io/json-structure/amazon-managed-grafana/amazon-managed-grafana-aws-sso-authentication-structure/)
+- [Amazon Managed Grafana Boolean Structure](https://apis.io/json-structure/amazon-managed-grafana/amazon-managed-grafana-boolean-structure/)
+- [Amazon Managed Grafana Client Token Structure](https://apis.io/json-structure/amazon-managed-grafana/amazon-managed-grafana-client-token-structure/)
+- [Amazon Managed Grafana Conflict Exception Structure](https://apis.io/json-structure/amazon-managed-grafana/amazon-managed-grafana-conflict-exception-structure/)
+- [Amazon Managed Grafana Create Workspace Api Key Request Seconds To Live Integer Structure](https://apis.io/json-structure/amazon-managed-grafana/amazon-managed-grafana-create-workspace-api-key-request-seconds-to-live-integer-structure/)
+- [Amazon Managed Grafana Create Workspace Api Key Request Structure](https://apis.io/json-structure/amazon-managed-grafana/amazon-managed-grafana-create-workspace-api-key-request-structure/)
+- [Amazon Managed Grafana Create Workspace Api Key Response Structure](https://apis.io/json-structure/amazon-managed-grafana/amazon-managed-grafana-create-workspace-api-key-response-structure/)
+- [Amazon Managed Grafana Create Workspace Request Structure](https://apis.io/json-structure/amazon-managed-grafana/amazon-managed-grafana-create-workspace-request-structure/)
+- [Amazon Managed Grafana Create Workspace Response Structure](https://apis.io/json-structure/amazon-managed-grafana/amazon-managed-grafana-create-workspace-response-structure/)
+- [Amazon Managed Grafana Data Source Type Structure](https://apis.io/json-structure/amazon-managed-grafana/amazon-managed-grafana-data-source-type-structure/)
+- [Amazon Managed Grafana Data Source Types List Structure](https://apis.io/json-structure/amazon-managed-grafana/amazon-managed-grafana-data-source-types-list-structure/)
+- …and 100 more published on APIs.io
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Amazon Managed Grafana Context](https://apis.io/jsonld/amazon-managed-grafana/amazon-managed-grafana-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Amazon Managed Grafana Vocabulary](https://apis.io/vocabularies/amazon-managed-grafana/amazon-managed-grafana-vocabulary/)
+
+#### Examples (125)
+
+Example requests and responses.
+
+- [Amazon Managed Grafana Access Denied Exception Example](https://apis.io/examples/amazon-managed-grafana/amazon-managed-grafana-access-denied-exception-example/)
+- [Amazon Managed Grafana Account Access Type Example](https://apis.io/examples/amazon-managed-grafana/amazon-managed-grafana-account-access-type-example/)
+- [Amazon Managed Grafana Allowed Organization Example](https://apis.io/examples/amazon-managed-grafana/amazon-managed-grafana-allowed-organization-example/)
+- [Amazon Managed Grafana Allowed Organizations Example](https://apis.io/examples/amazon-managed-grafana/amazon-managed-grafana-allowed-organizations-example/)
+- [Amazon Managed Grafana Api Key Name Example](https://apis.io/examples/amazon-managed-grafana/amazon-managed-grafana-api-key-name-example/)
+- [Amazon Managed Grafana Api Key Token Example](https://apis.io/examples/amazon-managed-grafana/amazon-managed-grafana-api-key-token-example/)
+- [Amazon Managed Grafana Assertion Attribute Example](https://apis.io/examples/amazon-managed-grafana/amazon-managed-grafana-assertion-attribute-example/)
+- [Amazon Managed Grafana Assertion Attributes Example](https://apis.io/examples/amazon-managed-grafana/amazon-managed-grafana-assertion-attributes-example/)
+- [Amazon Managed Grafana Associate License Request Example](https://apis.io/examples/amazon-managed-grafana/amazon-managed-grafana-associate-license-request-example/)
+- [Amazon Managed Grafana Associate License Response Example](https://apis.io/examples/amazon-managed-grafana/amazon-managed-grafana-associate-license-response-example/)
+- [Amazon Managed Grafana Authentication Description Example](https://apis.io/examples/amazon-managed-grafana/amazon-managed-grafana-authentication-description-example/)
+- [Amazon Managed Grafana Authentication Provider Types Example](https://apis.io/examples/amazon-managed-grafana/amazon-managed-grafana-authentication-provider-types-example/)
+- [Amazon Managed Grafana Authentication Providers Example](https://apis.io/examples/amazon-managed-grafana/amazon-managed-grafana-authentication-providers-example/)
+- [Amazon Managed Grafana Authentication Summary Example](https://apis.io/examples/amazon-managed-grafana/amazon-managed-grafana-authentication-summary-example/)
+- [Amazon Managed Grafana Aws Sso Authentication Example](https://apis.io/examples/amazon-managed-grafana/amazon-managed-grafana-aws-sso-authentication-example/)
+- [Amazon Managed Grafana Boolean Example](https://apis.io/examples/amazon-managed-grafana/amazon-managed-grafana-boolean-example/)
+- [Amazon Managed Grafana Client Token Example](https://apis.io/examples/amazon-managed-grafana/amazon-managed-grafana-client-token-example/)
+- [Amazon Managed Grafana Conflict Exception Example](https://apis.io/examples/amazon-managed-grafana/amazon-managed-grafana-conflict-exception-example/)
+- [Amazon Managed Grafana Create Workspace Api Key Request Example](https://apis.io/examples/amazon-managed-grafana/amazon-managed-grafana-create-workspace-api-key-request-example/)
+- [Amazon Managed Grafana Create Workspace Api Key Request Seconds To Live Integer Example](https://apis.io/examples/amazon-managed-grafana/amazon-managed-grafana-create-workspace-api-key-request-seconds-to-live-integer-example/)
+- [Amazon Managed Grafana Create Workspace Api Key Response Example](https://apis.io/examples/amazon-managed-grafana/amazon-managed-grafana-create-workspace-api-key-response-example/)
+- [Amazon Managed Grafana Create Workspace Request Example](https://apis.io/examples/amazon-managed-grafana/amazon-managed-grafana-create-workspace-request-example/)
+- [Amazon Managed Grafana Create Workspace Response Example](https://apis.io/examples/amazon-managed-grafana/amazon-managed-grafana-create-workspace-response-example/)
+- [Amazon Managed Grafana Data Source Type Example](https://apis.io/examples/amazon-managed-grafana/amazon-managed-grafana-data-source-type-example/)
+- [Amazon Managed Grafana Data Source Types List Example](https://apis.io/examples/amazon-managed-grafana/amazon-managed-grafana-data-source-types-list-example/)
+- …and 100 more published on APIs.io
+
+#### Collections (6)
+
+Postman and Open Collection request collections.
+
+- [Amazon Managed Grafana Tags API](https://apis.io/collections/amazon-managed-grafana/open-amazon-managed-grafana-tags-api/)
+- [Amazon Managed Grafana Tags Versions API](https://apis.io/collections/amazon-managed-grafana/open-amazon-managed-grafana-versions-api/)
+- [Amazon Managed Grafana Tags Workspaces API](https://apis.io/collections/amazon-managed-grafana/open-amazon-managed-grafana-workspaces-api/)
+- [Amazon Managed Grafana Tags API](https://apis.io/collections/amazon-managed-grafana/postman-amazon-managed-grafana-tags-api/)
+- [Amazon Managed Grafana Tags Versions API](https://apis.io/collections/amazon-managed-grafana/postman-amazon-managed-grafana-versions-api/)
+- [Amazon Managed Grafana Tags Workspaces API](https://apis.io/collections/amazon-managed-grafana/postman-amazon-managed-grafana-workspaces-api/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Amazon Managed Grafana — jsonschema rules](https://apis.io/rules/amazon-managed-grafana/amazon-managed-grafana-jsonschema-spectral-rules/)
+- [Amazon Managed Grafana API Rules](https://apis.io/rules/amazon-managed-grafana/amazon-managed-grafana-spectral-rules/)
+
+#### Security (4)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Amazon Managed Grafana Authentication](https://apis.io/security/amazon-managed-grafana/amazon-managed-grafana-authentication/)
+- [Amazon Managed Grafana Domain Security](https://apis.io/security/amazon-managed-grafana/amazon-managed-grafana-domain-security/)
+- [Amazon Managed Grafana Trust Center](https://apis.io/security/amazon-managed-grafana/amazon-managed-grafana-trust-center/)
+- [Amazon Managed Grafana Vulnerability Disclosure](https://apis.io/security/amazon-managed-grafana/amazon-managed-grafana-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Amazon Managed Grafana Plans Pricing](https://apis.io/plans/amazon-managed-grafana/amazon-managed-grafana-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Amazon Managed Grafana Rate Limits](https://apis.io/rate-limits/amazon-managed-grafana/amazon-managed-grafana-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Amazon Managed Grafana Finops](https://apis.io/finops/amazon-managed-grafana/amazon-managed-grafana-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://aws.amazon.com/grafana/)
 - [Documentation](https://docs.aws.amazon.com/grafana/)
-- [TermsOfService](https://aws.amazon.com/service-terms/)
-- [PrivacyPolicy](https://aws.amazon.com/privacy/)
 - [Support](https://aws.amazon.com/premiumsupport/)
 - [Blog](https://aws.amazon.com/blogs/mt/tag/amazon-managed-grafana/)
-- [GitHubOrganization](https://github.com/aws)
-- [Console](https://console.aws.amazon.com/grafana/)
-- [SignUp](https://portal.aws.amazon.com/billing/signup)
-- [Login](https://signin.aws.amazon.com/)
-- [StatusPage](https://health.aws.amazon.com/health/status)
-- [Contact](https://aws.amazon.com/contact-us/)
-- [SpectralRules](rules/amazon-managed-grafana-spectral-rules.yml)
-- [Vocabulary](vocabulary/amazon-managed-grafana-vocabulary.yaml)
-- [NaftikoCapability](capabilities/observability-dashboard-workflow.yaml)
+- [Terms of service](https://aws.amazon.com/service-terms/)
+- [Privacy policy](https://aws.amazon.com/privacy/)
+- [GitHub](https://github.com/aws)
+- [Status](https://health.aws.amazon.com/health/status)
 
-## Features
+## API Evangelist rating
 
-| Name | Description |
-|------|-------------|
-| Fully Managed Grafana | Provision and manage Grafana workspaces without infrastructure setup, patching, or scaling. |
-| SSO and SAML Integration | Configure SAML-based single sign-on for workspace authentication and user management. |
-| Multi-Source Data Visualization | Connect to AWS services, third-party ISVs, and on-premises data sources in a single dashboard. |
-| Workspace API Keys | Create and manage API keys for programmatic access to Grafana workspace resources. |
-| License Management | Associate and manage Grafana Enterprise licenses for advanced features. |
-| VPC Integration | Deploy workspaces within a VPC for secure private access to data sources. |
-| Role-Based Access Control | Manage user and group permissions within Grafana workspaces using role assignments. |
+**Kin Score 53.7** — developing · rubric 0.25.0 · scored 2026-10-23
 
-## Use Cases
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 66.7 |
+| Contract governance | 27.3 |
+| Operational transparency | 36.8 |
+| Developer ergonomics | 46.4 |
+| Access clarity | 53.9 |
 
-| Name | Description |
-|------|-------------|
-| Infrastructure Monitoring | Visualize AWS infrastructure metrics from CloudWatch, EC2, RDS, and other services in unified dashboards. |
-| Container Observability | Monitor Kubernetes and ECS workloads using Prometheus and CloudWatch Container Insights data sources. |
-| Application Performance Monitoring | Track application latency, error rates, and throughput with custom dashboards and alerting. |
-| Business Metrics Dashboards | Build executive dashboards combining operational and business metrics from multiple data sources. |
-| Security and Compliance Monitoring | Visualize security findings and compliance metrics from AWS Security Hub and GuardDuty. |
+**Agent readiness 34.1** — agent-ready
 
-## Integrations
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | verified |
+| Error Semantics | verified |
+| OpenAPI Examples | partial |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
 
-| Name | Description |
-|------|-------------|
-| Amazon CloudWatch | Visualize CloudWatch metrics and logs natively in Grafana dashboards. |
-| Amazon Managed Service for Prometheus | Query Prometheus metrics from AMP workspaces as a Grafana data source. |
-| AWS X-Ray | Trace application requests and visualize distributed tracing data in Grafana. |
-| Amazon OpenSearch Service | Query OpenSearch indices for log analytics and visualization. |
-| Amazon Timestream | Visualize time-series data stored in Amazon Timestream. |
-| AWS IAM Identity Center | Integrate with IAM Identity Center for centralized user authentication. |
+**Regulatory alignment 35.3** — Horizontal (data, software, accessibility, platform)
 
-## Artifacts
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/amazon-managed-grafana/](https://apis.io/providers/amazon-managed-grafana/).
 
-Machine-readable API specifications organized by format.
+## How this profile is made
 
-### OpenAPI
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
 
-- [Amazon Managed Grafana OpenAPI](openapi/amazon-managed-grafana-openapi-original.yaml)
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Amazon Managed Grafana: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
 
-### JSON Schema
+## Open an issue
 
-125 schema files available in the [json-schema/](json-schema/) directory.
-
-### JSON Structure
-
-125 structure files available in the [json-structure/](json-structure/) directory.
-
-### JSON-LD
-
-- [Amazon Managed Grafana Context](json-ld/amazon-managed-grafana-context.jsonld)
-
-### Examples
-
-125 example files available in the [examples/](examples/) directory.
-
-## Capabilities
-
-Naftiko capabilities organized as shared per-API definitions composed into customer-facing workflows.
-
-### Shared Per-API Definitions
-
-- [Amazon Managed Grafana](capabilities/shared/managed-grafana.yaml) — 21 operations for workspace management, authentication, and access control
-
-### Workflow Capabilities
-
-| Workflow | APIs Combined | Tools | Persona |
-|----------|--------------|-------|---------|
-| [Observability Dashboard Workflow](capabilities/observability-dashboard-workflow.yaml) | Amazon Managed Grafana | 5 | Platform Engineer, Operations Engineer |
-
-## Vocabulary
-
-- [Amazon Managed Grafana Vocabulary](vocabulary/amazon-managed-grafana-vocabulary.yaml) — Unified taxonomy mapping 5 resources, 7 actions, 1 workflow, and 2 personas across operational (OpenAPI) and capability (Naftiko) dimensions
-
-## Rules
-
-- [Amazon Managed Grafana Spectral Rules](rules/amazon-managed-grafana-spectral-rules.yml) — 18 rules across 7 categories enforcing Amazon Managed Grafana API conventions
-
-## Maintainers
-
-**FN:** Kin Lane
-
-**Email:** kin@apievangelist.com
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/amazon-managed-grafana/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
