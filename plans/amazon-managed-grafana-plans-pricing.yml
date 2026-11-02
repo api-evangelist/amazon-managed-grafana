@@ -1,0 +1,97 @@
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-10-28'
+method: searched
+source: https://aws.amazon.com/grafana/pricing/
+sources:
+- https://aws.amazon.com/grafana/pricing/
+provenance:
+  tool: engine/economics/harvest_pricing.py
+  run: 20261028T161713
+  grounding: every price_text was found verbatim in the fetched page text
+audience: business-product
+pricing_basis: per-seat
+delivery:
+  delivery: managed
+  method: page
+  read: '2026-10-28'
+  managed_tier: Amazon Managed Grafana Viewer
+published: true
+note: AWS pricing page; per active user license per workspace, billed monthly. API users and service accounts
+  billed at same $9/$5 rates. Also offers 'Request a pricing quote'.
+plan_count: 4
+currency: USD
+plans:
+- name: Amazon Managed Grafana Editor license
+  price_text: $9 per active editor or administrator user per workspace
+  price: 9
+  currency: USD
+  period: month
+  unit: active editor/administrator user per workspace
+  included_quota: Administrative permissions for managing workspace users, dashboards, alerts, and data
+    source permissions
+- name: Amazon Managed Grafana Viewer license
+  price_text: $5 per active user per workspace
+  price: 5
+  currency: USD
+  period: month
+  unit: active user per workspace
+  included_quota: 'View-only access: view dashboards, alerts, query data sources'
+- name: Amazon Managed Grafana Enterprise Plugins license
+  price_text: $45 per active user per workspace
+  price: 45
+  currency: USD
+  period: month
+  unit: active user per workspace
+  included_quota: Enterprise plugins for third-party data sources, support and on-demand training from
+    Grafana Labs
+- name: Free trial
+  price_text: 90-day free trial, with up to five free users per account
+  currency: USD
+  period: month
+  unit: users per account
+  included_quota: up to five free users for 90 days
+  overage: Usage beyond five free users billed at standard Editor/Viewer/Enterprise Plugins rates
+rate_limit_statements:
+- Each workspace requires a minimum of one Amazon Managed Grafana Editor license in order to manage and
+  log into the workspace, even if no users log in.
+x-canonical:
+  generated: '2026-11-01'
+  vocabulary: engine/economics/plans-canonical.yml
+  models:
+  - metered
+  - seat
+  units:
+  - seat
+  plans:
+  - name: Amazon Managed Grafana Editor license
+    access: other
+    model: seat
+    model_how: derived
+    units:
+    - seat
+    periods:
+    - month
+  - name: Amazon Managed Grafana Viewer license
+    access: other
+    model: seat
+    model_how: derived
+    units:
+    - seat
+    periods:
+    - month
+  - name: Amazon Managed Grafana Enterprise Plugins license
+    access: other
+    model: seat
+    model_how: derived
+    units:
+    - seat
+    periods:
+    - month
+  - name: Free trial
+    access: other
+    model: metered
+    model_how: derived
+    units:
+    - seat
+    periods:
+    - month
