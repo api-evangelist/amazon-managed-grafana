@@ -55,7 +55,7 @@ rate_limit_statements:
 - Each workspace requires a minimum of one Amazon Managed Grafana Editor license in order to manage and
   log into the workspace, even if no users log in.
 x-canonical:
-  generated: '2026-11-02'
+  generated: '2026-11-06'
   vocabulary: engine/economics/plans-canonical.yml
   models:
   - metered
