@@ -11,6 +11,18 @@ artifacts:
   capabilities/amazon-managed-grafana-capability-edges.yml:
     method: unknown
     evidence: no authorship recorded
+  certification/observations-2026-11-11.jsonl:
+    method: unknown
+    evidence: no authorship recorded
+  certification/status.yml:
+    method: unknown
+    evidence: no authorship recorded
+  changelog/amazon-managed-grafana-changelog.yml:
+    method: searched
+    evidence: declared in the artifact
+  cli/amazon-managed-grafana-cli.yml:
+    method: searched
+    evidence: declared in the artifact
   collections/amazon-managed-grafana-tags-api.opencollection.json:
     method: derived
     evidence: openapi/amazon-managed-grafana-tags-api
@@ -29,6 +41,27 @@ artifacts:
   collections/amazon-managed-grafana-workspaces-api.postman_collection.json:
     method: derived
     evidence: openapi/amazon-managed-grafana-workspaces-api
+  compliance/amazon-managed-grafana-compliance.yml:
+    method: harvested
+    evidence: declared in the artifact
+  conformance/amazon-managed-grafana-conformance.yml:
+    method: derived
+    evidence: declared in the artifact
+  conventions/amazon-managed-grafana-conventions.yml:
+    method: derived
+    evidence: declared in the artifact
+  data-model/amazon-managed-grafana-data-model.yml:
+    method: derived
+    evidence: declared in the artifact
+  eligibility/amazon-managed-grafana-eligibility.yml:
+    method: harvested
+    evidence: declared in the artifact
+  errors/amazon-managed-grafana-error-codes.yml:
+    method: searched
+    evidence: declared in the artifact
+  errors/amazon-managed-grafana-problem-types.yml:
+    method: derived
+    evidence: declared in the artifact
   examples/amazon-managed-grafana-access-denied-exception-example.json:
     method: unknown
     evidence: no authorship recorded
@@ -410,6 +443,9 @@ artifacts:
   front-door-ai/2026-09-17.yml:
     method: unknown
     evidence: no authorship recorded
+  hosts/amazon-managed-grafana-hosts.yml:
+    method: derived
+    evidence: declared in the artifact
   integrations/_index.yml:
     method: generated
     evidence: carries an API Evangelist house phrase
@@ -488,6 +524,18 @@ artifacts:
   json-schema/amazon-managed-grafana-create-workspace-response-schema.json:
     method: unknown
     evidence: no authorship recorded
+  json-schema/amazon-managed-grafana-create-workspace-service-account-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-managed-grafana-create-workspace-service-account-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-managed-grafana-create-workspace-service-account-token-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-managed-grafana-create-workspace-service-account-token-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
   json-schema/amazon-managed-grafana-data-source-type-schema.json:
     method: unknown
     evidence: no authorship recorded
@@ -504,6 +552,18 @@ artifacts:
     method: unknown
     evidence: no authorship recorded
   json-schema/amazon-managed-grafana-delete-workspace-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-managed-grafana-delete-workspace-service-account-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-managed-grafana-delete-workspace-service-account-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-managed-grafana-delete-workspace-service-account-token-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-managed-grafana-delete-workspace-service-account-token-response-schema.json:
     method: unknown
     evidence: no authorship recorded
   json-schema/amazon-managed-grafana-describe-workspace-authentication-request-schema.json:
@@ -579,6 +639,18 @@ artifacts:
     method: unknown
     evidence: no authorship recorded
   json-schema/amazon-managed-grafana-list-versions-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-managed-grafana-list-workspace-service-account-tokens-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-managed-grafana-list-workspace-service-account-tokens-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-managed-grafana-list-workspace-service-accounts-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-managed-grafana-list-workspace-service-accounts-response-schema.json:
     method: unknown
     evidence: no authorship recorded
   json-schema/amazon-managed-grafana-list-workspaces-request-max-results-integer-schema.json:
@@ -1172,7 +1244,7 @@ artifacts:
   kin/checks-2026-10-23T222754.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
-  kin/checks-2026-11-02T082323.yml:
+  kin/checks-2026-11-06T143934.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
   kin/score-2026-09-23T000603.yml:
@@ -1241,25 +1313,42 @@ artifacts:
   kin/score-2026-11-02T082323.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
-  openapi/_original/amazon-managed-grafana-openapi-original.yaml:
-    method: harvested
-    evidence: found in openapi/_original/; the fetch URL and bytes were not recorded, so byte-identity
-      to the provider's source is unverified
+  kin/score-2026-11-06T143934.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  lifecycle/amazon-managed-grafana-lifecycle.yml:
+    method: searched
+    evidence: declared in the artifact
+  llms/amazon-managed-grafana-llms-provenance.yml:
+    method: unknown
+    evidence: no authorship recorded
+  llms/amazon-managed-grafana-llms.txt:
+    method: unknown
+    evidence: no authorship recorded
+  mcp/amazon-managed-grafana-mcp.yml:
+    method: searched
+    evidence: declared in the artifact
   openapi/amazon-managed-grafana-serviceaccounts-api-openapi.yml:
     method: unknown
     evidence: no authorship recorded
   openapi/amazon-managed-grafana-tags-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-managed-grafana-tokens-api-openapi.yml:
     method: unknown
     evidence: no authorship recorded
   openapi/amazon-managed-grafana-versions-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-managed-grafana-workspaces-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  packages/amazon-managed-grafana-packages.yml:
+    method: searched
+    evidence: declared in the artifact
+  patterns/amazon-managed-grafana-patterns.yml:
     method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    evidence: declared in the artifact
   plans/amazon-managed-grafana-plans-pricing.yml:
     method: searched
     evidence: declared in the artifact
@@ -1272,10 +1361,16 @@ artifacts:
   postman/amazon-managed-grafana-workspaces-api.postman_collection.json:
     method: derived
     evidence: openapi/amazon-managed-grafana-workspaces-api
+  privacy/amazon-managed-grafana-privacy-policy.yml:
+    method: harvested
+    evidence: declared in the artifact
   rate-limits/amazon-managed-grafana-rate-limits.yml:
-    method: generated
+    method: searched
     evidence: declared in the artifact
   rules/amazon-managed-grafana-jsonschema-spectral-rules.yml:
+    method: generated
+    evidence: declared in the artifact
+  rules/amazon-managed-grafana-rules.yml:
     method: generated
     evidence: declared in the artifact
   rules/amazon-managed-grafana-spectral-rules.yml:
@@ -1294,8 +1389,27 @@ artifacts:
     method: generated
     evidence: declared in the artifact
   smithy/grafana-2020-08-18.json:
+    method: harvested
+    evidence: byte-identical to https://raw.githubusercontent.com/aws/api-models-aws/3cd98287b471c106254abd89279cc87308d38bfd/models/grafana/service/2020-08-18/grafana-2020-08-18.json
+      (sha256 b473089ecf32, fetched 2026-11-11T21:12:22+00:00)
+  terms/amazon-managed-grafana-terms-of-service.yml:
+    method: harvested
+    evidence: declared in the artifact
+  vendors/amazon-managed-grafana-vendors.yml:
     method: unknown
     evidence: no authorship recorded
   vocabulary/amazon-managed-grafana-vocabulary.yaml:
+    method: unknown
+    evidence: no authorship recorded
+  vocabulary/amazon-managed-grafana-vocabulary.yml:
+    method: derived
+    evidence: declared in the artifact
+  well-known/amazon-managed-grafana-midway-auth-openid-configuration.json:
+    method: unknown
+    evidence: no authorship recorded
+  well-known/amazon-managed-grafana-security.txt:
+    method: unknown
+    evidence: no authorship recorded
+  well-known/amazon-managed-grafana-well-known.yml:
     method: unknown
     evidence: no authorship recorded

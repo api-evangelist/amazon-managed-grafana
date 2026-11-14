@@ -1,11 +1,14 @@
 aid: amazon-managed-grafana
+
 name: Amazon Managed Grafana
-description: Amazon Managed Grafana is a fully managed service for open source Grafana developed in collaboration
-  with Grafana Labs. It enables interactive data visualizations and dashboards for operational metrics,
-  logs, and traces from multiple sources including AWS services, third-party ISVs, and on-premises data.
-  The service handles provisioning, setup, scaling, and maintenance of Grafana, allowing teams to focus
-  on creating dashboards and analyzing data.
+
+description: Amazon Managed Grafana is a fully managed service for open source Grafana developed in collaboration with Grafana Labs. It enables
+  interactive data visualizations and dashboards for operational metrics, logs, and traces from multiple sources including AWS services, third-party
+  ISVs, and on-premises data. The service handles provisioning, setup, scaling, and maintenance of Grafana, allowing teams to focus on creating
+  dashboards and analyzing data.
+
 type: Index
+
 deliveryModel:
   model: saas
   open_source: false
@@ -18,6 +21,7 @@ deliveryModel:
   - pricing
   generated: '2026-08-28'
   method: derived
+
 accessModel:
   pricing: freemium
   onboarding: self-serve
@@ -28,14 +32,16 @@ accessModel:
   gated_source:
   - onboarding
   label: Freemium (free trial) · Self-serve signup
-  confidence: medium
+  confidence: high
   source:
   - plans
   - authentication
+  - rate-limits
   - security
-  generated: '2026-11-06'
+  generated: '2026-11-13'
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/amazon-managed-grafana.png
+
 tags:
 - Amazon Web Services
 - Dashboards
@@ -50,109 +56,72 @@ tags_raw:
 - Observability
 - Visualization
 - Data Visualization
+
 url: https://raw.githubusercontent.com/api-evangelist/amazon-managed-grafana/refs/heads/main/apis.yml
+
 created: '2026-03-16'
+
 modified: '2026-09-16'
+
 specificationVersion: '0.23'
-apis:
-- aid: amazon-managed-grafana:amazon-managed-grafana-tags-api
-  name: Amazon Managed Grafana Tags API
-  description: The Tags API from Amazon Managed Grafana — 2 operation(s) for tags.
-  humanURL: https://aws.amazon.com/grafana/
-  baseURL: https://grafana.amazonaws.com
-  tags:
-  - Tags
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-managed-grafana-tags-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/grafana/latest/APIReference/Welcome.html
-  - type: GettingStarted
-    url: https://aws.amazon.com/grafana/getting-started/
-  - type: Pricing
-    url: https://aws.amazon.com/grafana/pricing/
-  - type: FAQ
-    url: https://aws.amazon.com/grafana/faqs/
-  - type: JSONSchema
-    url: json-schema/amazon-managed-grafana-workspace-summary-schema.json
-  - type: JSONStructure
-    url: json-structure/amazon-managed-grafana-workspace-summary-structure.json
-  - type: JSONLD
-    url: json-ld/amazon-managed-grafana-context.jsonld
-- aid: amazon-managed-grafana:amazon-managed-grafana-versions-api
-  name: Amazon Managed Grafana Versions API
-  description: The Versions API from Amazon Managed Grafana — 1 operation(s) for versions.
-  humanURL: https://aws.amazon.com/grafana/
-  baseURL: https://grafana.amazonaws.com
-  tags:
-  - Versions
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-managed-grafana-versions-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/grafana/latest/APIReference/Welcome.html
-  - type: GettingStarted
-    url: https://aws.amazon.com/grafana/getting-started/
-  - type: Pricing
-    url: https://aws.amazon.com/grafana/pricing/
-  - type: FAQ
-    url: https://aws.amazon.com/grafana/faqs/
-  - type: JSONSchema
-    url: json-schema/amazon-managed-grafana-workspace-summary-schema.json
-  - type: JSONStructure
-    url: json-structure/amazon-managed-grafana-workspace-summary-structure.json
-  - type: JSONLD
-    url: json-ld/amazon-managed-grafana-context.jsonld
-- aid: amazon-managed-grafana:amazon-managed-grafana-workspaces-api
-  name: Amazon Managed Grafana Workspaces API
-  description: The Workspaces API from Amazon Managed Grafana — 8 operation(s) for workspaces.
-  humanURL: https://aws.amazon.com/grafana/
-  baseURL: https://grafana.amazonaws.com
-  tags:
-  - Workspace
-  tags_raw:
-  - Workspaces
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-managed-grafana-workspaces-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/grafana/latest/APIReference/Welcome.html
-  - type: GettingStarted
-    url: https://aws.amazon.com/grafana/getting-started/
-  - type: Pricing
-    url: https://aws.amazon.com/grafana/pricing/
-  - type: FAQ
-    url: https://aws.amazon.com/grafana/faqs/
-  - type: JSONSchema
-    url: json-schema/amazon-managed-grafana-workspace-summary-schema.json
-  - type: JSONStructure
-    url: json-structure/amazon-managed-grafana-workspace-summary-structure.json
-  - type: JSONLD
-    url: json-ld/amazon-managed-grafana-context.jsonld
-- aid: amazon-managed-grafana:amazon-managed-grafana-serviceaccounts-api
-  name: Amazon Managed Grafana Managed Grafana Serviceaccounts API
-  description: >-
-    The Managed Grafana Serviceaccounts API from Amazon Managed Grafana — 2 operation(s) for managed grafana
-    serviceaccounts.
-  humanURL: https://aws.amazon.com/grafana/
-  baseURL: https://grafana.amazonaws.com
-  tags:
-  - Managed Grafana Serviceaccounts
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-managed-grafana-serviceaccounts-api-openapi.yml
-- aid: amazon-managed-grafana:amazon-managed-grafana-tokens-api
-  name: Amazon Managed Grafana Managed Grafana Tokens API
-  description: >-
-    The Managed Grafana Tokens API from Amazon Managed Grafana — 2 operation(s) for managed grafana tokens.
-  humanURL: https://aws.amazon.com/grafana/
-  baseURL: https://grafana.amazonaws.com
-  tags:
-  - Managed Grafana Tokens
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-managed-grafana-tokens-api-openapi.yml
+
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
+
 common:
+- type: Spectral
+  url: rules/amazon-managed-grafana-spectral-rules.yml
+- type: Spectral
+  url: rules/amazon-managed-grafana-rules.yml
+- type: Spectral
+  url: rules/amazon-managed-grafana-jsonschema-spectral-rules.yml
+- type: Vocabulary
+  url: vocabulary/amazon-managed-grafana-vocabulary.yml
+- type: DataModel
+  url: data-model/amazon-managed-grafana-data-model.yml
+- type: CLI
+  url: cli/amazon-managed-grafana-cli.yml
+- type: ChangeLog
+  url: changelog/amazon-managed-grafana-changelog.yml
+- type: Idempotency
+  url: conventions/amazon-managed-grafana-conventions.yml
+- type: Conventions
+  url: conventions/amazon-managed-grafana-conventions.yml
+- type: Compliance
+  url: https://aws.amazon.com/compliance/
+- type: Deprecation
+  url: https://docs.aws.amazon.com/grafana/latest/userguide/doc-history.html
+- type: Lifecycle
+  url: lifecycle/amazon-managed-grafana-lifecycle.yml
+- type: ErrorCatalog
+  url: errors/amazon-managed-grafana-error-codes.yml
+- type: ErrorCatalog
+  url: errors/amazon-managed-grafana-problem-types.yml
+- type: Conformance
+  url: conformance/amazon-managed-grafana-conformance.yml
+- type: LLMsTxt
+  url: llms/amazon-managed-grafana-llms.txt
+- type: MCPServer
+  url: mcp/amazon-managed-grafana-mcp.yml
+- type: SecurityTxt
+  url: well-known/amazon-managed-grafana-security.txt
+- type: WellKnown
+  url: well-known/amazon-managed-grafana-well-known.yml
+- type: Hosts
+  url: hosts/amazon-managed-grafana-hosts.yml
+- type: Vendors
+  url: vendors/amazon-managed-grafana-vendors.yml
+- type: SDKs
+  url: packages/amazon-managed-grafana-packages.yml
+- type: Packages
+  url: packages/amazon-managed-grafana-packages.yml
+- type: Security
+  url: https://aws.amazon.com/security/?nc2=h_dsc_aa_sec
+- type: Newsroom
+  url: https://aws.amazon.com/media/?nc2=h_sol_ind_med
+- type: GettingStarted
+  url: https://developer.amazon.com/frustration-free-setup
 - type: Plans
   url: plans/amazon-managed-grafana-plans-pricing.yml
 - type: RateLimits
@@ -223,16 +192,13 @@ common:
 - type: UseCases
   data:
   - name: Infrastructure Monitoring
-    description: Visualize AWS infrastructure metrics from CloudWatch, EC2, RDS, and other services in
-      unified dashboards.
+    description: Visualize AWS infrastructure metrics from CloudWatch, EC2, RDS, and other services in unified dashboards.
   - name: Container Observability
-    description: Monitor Kubernetes and ECS workloads using Prometheus and CloudWatch Container Insights
-      data sources.
+    description: Monitor Kubernetes and ECS workloads using Prometheus and CloudWatch Container Insights data sources.
   - name: Application Performance Monitoring
     description: Track application latency, error rates, and throughput with custom dashboards and alerting.
   - name: Business Metrics Dashboards
-    description: Build executive dashboards combining operational and business metrics from multiple data
-      sources.
+    description: Build executive dashboards combining operational and business metrics from multiple data sources.
   - name: Security and Compliance Monitoring
     description: Visualize security findings and compliance metrics from AWS Security Hub and GuardDuty.
 - type: Integrations
@@ -249,8 +215,146 @@ common:
     description: Visualize time-series data stored in Amazon Timestream.
   - name: AWS IAM Identity Center
     description: Integrate with IAM Identity Center for centralized user authentication.
-maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
+- type: UsageTerms
+  url: terms/amazon-managed-grafana-terms-of-service.yml
+- type: DataProcessing
+  url: privacy/amazon-managed-grafana-privacy-policy.yml
+- type: Attestations
+  url: compliance/amazon-managed-grafana-compliance.yml
+- type: Eligibility
+  url: eligibility/amazon-managed-grafana-eligibility.yml
+
+apis:
+- aid: amazon-managed-grafana:amazon-managed-grafana-tags-api
+  name: Amazon Managed Grafana Tags API
+  description: The Tags API from Amazon Managed Grafana — 2 operation(s) for tags.
+  humanURL: https://aws.amazon.com/grafana/
+  baseURL: https://grafana.amazonaws.com
+  tags:
+  - Tags
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-managed-grafana-tags-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/grafana/latest/APIReference/Welcome.html
+  - type: Pricing
+    url: https://aws.amazon.com/grafana/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/grafana/faqs/
+  - type: JSONStructure
+    url: json-structure/amazon-managed-grafana-workspace-summary-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-managed-grafana-context.jsonld
+  - type: JSONSchema
+    url: json-schema/amazon-managed-grafana-tag-resource-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-managed-grafana-untag-resource-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-managed-grafana-list-tags-for-resource-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-managed-grafana-list-tags-for-resource-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-managed-grafana-tag-resource-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-managed-grafana-untag-resource-response-schema.json
+- aid: amazon-managed-grafana:amazon-managed-grafana-versions-api
+  name: Amazon Managed Grafana Versions API
+  description: The Versions API from Amazon Managed Grafana — 1 operation(s) for versions.
+  humanURL: https://aws.amazon.com/grafana/
+  baseURL: https://grafana.amazonaws.com
+  tags:
+  - Versions
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-managed-grafana-versions-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/grafana/latest/APIReference/Welcome.html
+  - type: Pricing
+    url: https://aws.amazon.com/grafana/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/grafana/faqs/
+  - type: JSONStructure
+    url: json-structure/amazon-managed-grafana-workspace-summary-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-managed-grafana-context.jsonld
+  - type: JSONSchema
+    url: json-schema/amazon-managed-grafana-list-versions-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-managed-grafana-list-versions-response-schema.json
+- aid: amazon-managed-grafana:amazon-managed-grafana-workspaces-api
+  name: Amazon Managed Grafana Workspaces API
+  description: The Workspaces API from Amazon Managed Grafana — 8 operation(s) for workspaces.
+  humanURL: https://aws.amazon.com/grafana/
+  baseURL: https://grafana.amazonaws.com
+  tags:
+  - Workspace
+  tags_raw:
+  - Workspaces
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-managed-grafana-workspaces-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/grafana/latest/APIReference/Welcome.html
+  - type: Pricing
+    url: https://aws.amazon.com/grafana/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/grafana/faqs/
+  - type: JSONSchema
+    url: json-schema/amazon-managed-grafana-workspace-summary-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-managed-grafana-workspace-summary-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-managed-grafana-context.jsonld
+- aid: amazon-managed-grafana:amazon-managed-grafana-serviceaccounts-api
+  name: Amazon Managed Grafana Managed Grafana Serviceaccounts API
+  description: The Managed Grafana Serviceaccounts API from Amazon Managed Grafana — 2 operation(s) for managed grafana serviceaccounts.
+  humanURL: https://aws.amazon.com/grafana/
+  baseURL: https://grafana.amazonaws.com
+  tags:
+  - Managed Grafana Serviceaccounts
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-managed-grafana-serviceaccounts-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-managed-grafana-create-workspace-service-account-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-managed-grafana-list-workspace-service-accounts-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-managed-grafana-list-workspace-service-accounts-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-managed-grafana-create-workspace-service-account-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-managed-grafana-delete-workspace-service-account-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-managed-grafana-delete-workspace-service-account-request-schema.json
+- aid: amazon-managed-grafana:amazon-managed-grafana-tokens-api
+  name: Amazon Managed Grafana Managed Grafana Tokens API
+  description: The Managed Grafana Tokens API from Amazon Managed Grafana — 2 operation(s) for managed grafana tokens.
+  humanURL: https://aws.amazon.com/grafana/
+  baseURL: https://grafana.amazonaws.com
+  tags:
+  - Managed Grafana Tokens
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-managed-grafana-tokens-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-managed-grafana-list-workspace-service-account-tokens-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-managed-grafana-list-workspace-service-account-tokens-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-managed-grafana-create-workspace-service-account-token-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-managed-grafana-create-workspace-service-account-token-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-managed-grafana-delete-workspace-service-account-token-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-managed-grafana-delete-workspace-service-account-token-request-schema.json
+
 x-parent: amazon-web-services
+
 x-relationship: product
+x-enrichment:
+  date: '2026-11-11'
+  status: enriched
+  artifacts_added: 8
+  pass: local-v6

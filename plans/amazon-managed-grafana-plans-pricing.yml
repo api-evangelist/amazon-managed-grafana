@@ -2,6 +2,7 @@
 generated: '2026-10-28'
 method: searched
 source: https://aws.amazon.com/grafana/pricing/
+name: Amazon Managed Grafana API Plans
 sources:
 - https://aws.amazon.com/grafana/pricing/
 provenance:
@@ -55,7 +56,7 @@ rate_limit_statements:
 - Each workspace requires a minimum of one Amazon Managed Grafana Editor license in order to manage and
   log into the workspace, even if no users log in.
 x-canonical:
-  generated: '2026-11-06'
+  generated: '2026-11-13'
   vocabulary: engine/economics/plans-canonical.yml
   models:
   - metered
